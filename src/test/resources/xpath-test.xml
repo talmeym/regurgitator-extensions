@@ -1,0 +1,10 @@
+<doc>
+	<person>
+		<name>miles</name>
+		<age>37</age>
+	</person>
+	<person>
+		<name>dave</name>
+		<age>42</age>
+	</person>
+</doc>
