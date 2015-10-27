@@ -7,7 +7,6 @@ import org.junit.*;
 import java.io.IOException;
 import java.util.Arrays;
 
-import static junit.framework.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
 public class JsonPathProcessorTest {

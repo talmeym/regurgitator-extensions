@@ -3,7 +3,6 @@ package com.emarte.regurgitator.extensions;
 import com.emarte.regurgitator.core.*;
 
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class JsonParameter extends ParameterExtractor {
 	private final Log log = Log.getLog(this);
