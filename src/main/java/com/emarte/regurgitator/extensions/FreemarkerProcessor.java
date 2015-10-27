@@ -18,7 +18,7 @@ public class FreemarkerProcessor implements ValueProcessor {
 	}
 
 	@Override
-	public Object process(Object value) throws RegurgitatorException {
+	public Object process(Object value, Message message) throws RegurgitatorException {
 		Map<String, Object> valueMap = new HashMap<String, Object>();
 		valueMap.put("value", value);
 		log.debug("Building value from template value '" + templateValue + "' and value map: " + valueMap);

@@ -24,7 +24,7 @@ public class JsonParameter extends ParameterExtractor {
 			throw new RegurgitatorException(parameter == null ? "Json source document not found" : "Json source document not a string");
 		}
 
-		Object value = jsonPathProcessor.process(parameter.getValue());
+		Object value = jsonPathProcessor.process(parameter.getValue(), message);
 		log.debug("Extracted " + (value != null ? "value '" + value + "'" : "no value") + " for parameter '" + getId() + '\'');
 		return value;
     }

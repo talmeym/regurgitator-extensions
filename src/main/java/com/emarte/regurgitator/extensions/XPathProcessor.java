@@ -22,7 +22,7 @@ public class XPathProcessor implements ValueProcessor {
 	}
 
 	@Override
-	public Object process(Object value) throws RegurgitatorException {
+	public Object process(Object value, Message message) throws RegurgitatorException {
 		return process(getDocument(stringify(value)));
 	}
 

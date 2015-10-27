@@ -20,12 +20,12 @@ public class XPathProcessorTest {
 	@Test
 	public void testThis() throws RegurgitatorException {
 		XPathProcessor xPathProcessor = new XPathProcessor("/doc/person[name='miles']/age", new HashMap<String, String>());
-		assertEquals("37", xPathProcessor.process(xml));
+		assertEquals("37", xPathProcessor.process(xml, null));
 	}
 
 	@Test
 	public void testThat() throws RegurgitatorException {
 		XPathProcessor xPathProcessor = new XPathProcessor("/doc/person/age", new HashMap<String, String>());
-		assertEquals(Arrays.asList("37", "42"), xPathProcessor.process(xml));
+		assertEquals(Arrays.asList("37", "42"), xPathProcessor.process(xml, null));
 	}
 }

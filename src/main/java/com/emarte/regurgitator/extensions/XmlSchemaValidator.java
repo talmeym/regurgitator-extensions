@@ -46,7 +46,7 @@ public class XmlSchemaValidator implements ValueProcessor {
     }
 
 	@Override
-    public Object process(Object value) throws RegurgitatorException {
+    public Object process(Object value, Message message) throws RegurgitatorException {
 		String xml = stringify(value);
 
 		try {

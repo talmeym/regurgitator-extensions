@@ -16,7 +16,7 @@ public class JsonPathProcessor implements ValueProcessor {
 	}
 
 	@Override
-	public Object process(Object value) throws RegurgitatorException {
+	public Object process(Object value, Message message) throws RegurgitatorException {
 		try {
 			log.debug("Applying jsonpath '" + path.getPath() + "'");
 			return strip(path.read(stringify(value)));

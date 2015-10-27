@@ -21,19 +21,19 @@ public class JsonPathProcessorTest {
 	@Test
 	public void testThis() throws RegurgitatorException {
 		JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[?(@.name=='miles')].age");
-		assertEquals(Arrays.asList(37), jsonpath.process(json));
+		assertEquals(Arrays.asList(37), jsonpath.process(json, null));
 	}
 
 	@Test
 	public void testThat() throws RegurgitatorException {
 		JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[*].age");
-		assertEquals(Arrays.asList(37, 42), jsonpath.process(json));
+		assertEquals(Arrays.asList(37, 42), jsonpath.process(json, null));
 	}
 
 	@Test
 	public void testLinkedHashMap() throws IOException, RegurgitatorException {
 		json = FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/jsonpath-map-test.json"));
 		JsonPathProcessor jsonpath = new JsonPathProcessor("$.object");
-		assertEquals("{\"something\":\"miles\"}", jsonpath.process(json));
+		assertEquals("{\"something\":\"miles\"}", jsonpath.process(json, null));
 	}
 }

@@ -24,7 +24,7 @@ public class XmlParameter extends ParameterExtractor {
 			throw new RegurgitatorException(parameter == null ? "Xml source document not found" : "Xml source document not a string");
 		}
 
-		Object value = xPathProcessor.process(stringify(parameter));
+		Object value = xPathProcessor.process(stringify(parameter), message);
 		log.debug("Extracted " + (value != null ? "value '" + value + "'" : "no value") + " for parameter '" + getId() + '\'');
 		return value;
 	}
