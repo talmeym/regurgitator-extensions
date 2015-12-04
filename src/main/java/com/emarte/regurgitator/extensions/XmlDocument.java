@@ -7,7 +7,7 @@ import org.dom4j.io.SAXReader;
 import java.io.StringReader;
 
 class XmlDocument {
-	private static Log log = Log.getLog(XmlDocument.class);
+	private static final Log log = Log.getLog(XmlDocument.class);
 
     static Document getDocument(String documentText) throws RegurgitatorException {
 		Cache<Document> cache = Caching.getCache(Document.class);

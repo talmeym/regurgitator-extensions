@@ -10,7 +10,7 @@ import java.util.Map;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class VelocityBuilder extends AbstractValueBuilder {
-	private final Log log = Log.getLog(this);
+	private static final Log log = Log.getLog(VelocityBuilder.class);
 	private static Exception initError;
 
     static {

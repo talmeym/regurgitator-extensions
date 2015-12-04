@@ -11,7 +11,8 @@ import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
 import static org.dom4j.DocumentHelper.createXPath;
 
 public class ContainsXpath implements ConditionBehaviour {
-	private static Log log = Log.getLog(ContainsXpath.class);
+	private static final Log log = Log.getLog(ContainsXpath.class);
+
 	private final Map<String, String> namespaceUris;
 
 	public ContainsXpath(Map<String, String> namespaceUris) {

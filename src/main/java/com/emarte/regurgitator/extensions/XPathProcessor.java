@@ -11,7 +11,7 @@ import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
 import static org.dom4j.DocumentHelper.createXPath;
 
 public class XPathProcessor implements ValueProcessor {
-	private static Log log = Log.getLog(XPathProcessor.class);
+	private static final Log log = Log.getLog(XPathProcessor.class);
 
 	private final Map<String, String> namespaces;
 	private String xpath;

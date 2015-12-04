@@ -6,7 +6,7 @@ import com.jayway.jsonpath.*;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class ContainsJsonPath implements ConditionBehaviour {
-	private static Log log = Log.getLog(ContainsJsonPath.class);
+	private static final Log log = Log.getLog(ContainsJsonPath.class);
 
 	@Override
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) throws RegurgitatorException {
