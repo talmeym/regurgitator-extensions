@@ -6,22 +6,20 @@ import org.dom4j.io.SAXReader;
 
 import java.io.StringReader;
 
-import static com.emarte.regurgitator.core.Caching.Cache;
-
 class XmlDocument {
 	private static Log log = Log.getLog(XmlDocument.class);
 
     static Document getDocument(String documentText) throws RegurgitatorException {
-		Cache cache = Caching.getCache(XmlDocument.class);
+		Cache<Document> cache = Caching.getCache(Document.class);
 
-		if (cache.hasValue(documentText)) {
+		if (cache.contains(documentText)) {
 			log.debug("Found existing xml document");
-			return (Document) cache.getValue(documentText);
+			return cache.get(documentText);
 		}
 
 		log.debug("Parsing xml document");
 		Document document = parseXmlDocument(documentText);
-		cache.setValue(documentText, document);
+		cache.set(documentText, document);
 		return document;
     }
 
