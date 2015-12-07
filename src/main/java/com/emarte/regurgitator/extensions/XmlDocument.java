@@ -6,6 +6,8 @@ import org.dom4j.io.SAXReader;
 
 import java.io.StringReader;
 
+import static com.emarte.regurgitator.core.CacheProvider.Cache;
+
 class XmlDocument {
 	private static final Log log = Log.getLog(XmlDocument.class);
 
