@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class FreemarkerBuilderTest {
 	@Test
 	public void testFreemarkerBuilder() throws RegurgitatorException, IOException {
-		FreemarkerBuilder toTest = new FreemarkerBuilder(null, FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/test-template.xml")));
+		FreemarkerBuilder toTest = new FreemarkerBuilder(new ValueSource(null, FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/test-template.xml"))));
 		Message message = new Message(null);
 		Parameters parameters = message.getParameters();
 		parameters.setValue("name", STRING, "Miles");

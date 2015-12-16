@@ -21,37 +21,22 @@ public class VelocityBuilder extends AbstractValueBuilder {
         }
     }
 
-	private ContextLocation source;
-	private String staticValue;
+	private ValueSource valueSource;
 
-	public VelocityBuilder(ContextLocation source, String staticValue) throws RegurgitatorException {
+	public VelocityBuilder(ValueSource valueSource) throws RegurgitatorException {
 		if(initError != null) {
 			throw new RegurgitatorException("Error initialising Velocity", initError);
 		}
 
-		this.source = source;
-		this.staticValue = staticValue;
+		this.valueSource = valueSource;
 	}
 
 	@Override
 	public String build(Message message) throws RegurgitatorException {
 		Map<String, Object> valueMap = getValueMap(message);
 		log.debug("Building value from value map: " + valueMap);
-		Object value;
 
-		if(source != null) {
-			Parameter parameter = message.getContextValue(source);
-
-			if(parameter == null) {
-				throw new RegurgitatorException("No value found at context location '" + source + "'");
-			}
-
-			log.debug("Using template from context location '" + source + "'");
-			value = parameter.getValue();
-		} else {
-			log.debug("Using static value template");
-			value = staticValue;
-		}
+		Object value = valueSource.getValue(message, log);
 
 		try {
 			VelocityContext context = new VelocityContext(valueMap);

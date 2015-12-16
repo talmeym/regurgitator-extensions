@@ -11,33 +11,18 @@ import static com.emarte.regurgitator.core.StringType.stringify;
 public class FreemarkerBuilder extends AbstractValueBuilder {
     private static final Log log = Log.getLog(FreemarkerBuilder.class);
 
-	private final ContextLocation source;
-	private final String staticValue;
+	private final ValueSource valueSource;
 
-	public FreemarkerBuilder(ContextLocation source, String staticValue) {
-		this.source = source;
-		this.staticValue = staticValue;
+	public FreemarkerBuilder(ValueSource valueSource) {
+		this.valueSource = valueSource;
 	}
 
     @Override
     public String build(Message message) throws RegurgitatorException {
 		Map<String, Object> valueMap = getValueMap(message);
 		log.debug("Building value from value map: " + valueMap);
-		Object value;
 
-		if(source != null) {
-			Parameter parameter = message.getContextValue(source);
-
-			if(parameter == null) {
-				throw new RegurgitatorException("No value found at context location '" + source + "'");
-			}
-
-			log.debug("Using template from context location '" + source + "'");
-			value = parameter.getValue();
-		} else {
-			log.debug("Using static value template");
-			value = staticValue;
-		}
+		Object value = valueSource.getValue(message, log);
 
         try {
             StringWriter writer = new StringWriter();
