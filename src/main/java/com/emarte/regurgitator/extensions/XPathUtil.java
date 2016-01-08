@@ -5,7 +5,7 @@ import org.dom4j.Node;
 import java.util.*;
 
 @SuppressWarnings({"unchecked"})
-public class XPathUtil {
+public class XpathUtil {
 	public static Object strip(Object extract) {
 		if (extract instanceof Collection) {
 			if (((Collection) extract).size() > 0) {

@@ -8,12 +8,12 @@ import static com.emarte.regurgitator.core.StringType.stringify;
 public class XmlParameter extends ParameterExtractor {
 	private final Log log = Log.getLog(this);
 	private final ContextLocation source;
-	private final XPathProcessor xPathProcessor;
+	private final XpathProcessor xpathProcessor;
 
-	public XmlParameter(Object id, ParameterPrototype prototype, String context, ContextLocation source, XPathProcessor xPathProcessor, ValueProcessor processor) {
+	public XmlParameter(Object id, ParameterPrototype prototype, String context, ContextLocation source, XpathProcessor xpathProcessor, ValueProcessor processor) {
 		super(id, prototype, context, processor);
 		this.source = source;
-		this.xPathProcessor = xPathProcessor;
+		this.xpathProcessor = xpathProcessor;
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class XmlParameter extends ParameterExtractor {
 			throw new RegurgitatorException(parameter == null ? "Xml source document not found" : "Xml source document not a string");
 		}
 
-		Object value = xPathProcessor.process(stringify(parameter), message);
+		Object value = xpathProcessor.process(stringify(parameter), message);
 		log.debug("Extracted " + (value != null ? "value '" + value + "'" : "no value") + " for parameter '" + getId() + '\'');
 		return value;
 	}

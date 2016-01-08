@@ -6,7 +6,7 @@ import org.dom4j.XPath;
 import java.util.Map;
 
 import static com.emarte.regurgitator.core.StringType.stringify;
-import static com.emarte.regurgitator.extensions.XPathUtil.strip;
+import static com.emarte.regurgitator.extensions.XpathUtil.strip;
 import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
 import static org.dom4j.DocumentHelper.createXPath;
 

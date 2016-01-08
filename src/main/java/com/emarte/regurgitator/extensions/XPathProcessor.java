@@ -6,17 +6,17 @@ import org.dom4j.*;
 import java.util.Map;
 
 import static com.emarte.regurgitator.core.StringType.stringify;
-import static com.emarte.regurgitator.extensions.XPathUtil.strip;
+import static com.emarte.regurgitator.extensions.XpathUtil.strip;
 import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
 import static org.dom4j.DocumentHelper.createXPath;
 
-public class XPathProcessor implements ValueProcessor {
-	private static final Log log = Log.getLog(XPathProcessor.class);
+public class XpathProcessor implements ValueProcessor {
+	private static final Log log = Log.getLog(XpathProcessor.class);
 
 	private final Map<String, String> namespaces;
 	private String xpath;
 
-	public XPathProcessor(String xpath, Map<String, String> namespaces) {
+	public XpathProcessor(String xpath, Map<String, String> namespaces) {
 		this.xpath = xpath;
 		this.namespaces = namespaces;
 	}
