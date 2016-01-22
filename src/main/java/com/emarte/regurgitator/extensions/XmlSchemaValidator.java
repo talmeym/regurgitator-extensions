@@ -14,7 +14,24 @@ import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 import static javax.xml.validation.SchemaFactory.newInstance;
 
 public class XmlSchemaValidator implements ValueProcessor {
-    protected final Log log = Log.getLog(XmlSchemaValidator.class);
+    private static final Log log = Log.getLog(XmlSchemaValidator.class);
+	private static final SchemaFactory factory = newInstance(W3C_XML_SCHEMA_NS_URI);
+
+	static {
+		factory.setResourceResolver(new LSResourceResolver() {
+			public LSInput resolveResource(String type, String namespaceURI, String publicId, String systemId, String baseURI) {
+				ByteStreamLSInput input = new ByteStreamLSInput();
+
+				try {
+					input.setByteStream(getInputStreamForFile(systemId));
+				} catch (IOException e) {
+					// do something
+				}
+
+				return input;
+			}
+		});
+	}
 
     private final String schemaName;
     private final Schema schema;
@@ -22,21 +39,6 @@ public class XmlSchemaValidator implements ValueProcessor {
     public XmlSchemaValidator(String schemaName) throws RegurgitatorException {
         this.schemaName = schemaName;
         checkResource(schemaName);
-        SchemaFactory factory = newInstance(W3C_XML_SCHEMA_NS_URI);
-
-        factory.setResourceResolver(new LSResourceResolver() {
-            public LSInput resolveResource(String type, String namespaceURI, String publicId, String systemId, String baseURI) {
-                ByteStreamLSInput input = new ByteStreamLSInput();
-
-                try {
-                    input.setByteStream(getInputStreamForFile(systemId));
-                } catch (IOException e) {
-                    // do something
-                }
-
-                return input;
-            }
-        });
 
         try {
             schema = factory.newSchema(new StreamSource(getInputStreamForFile(schemaName)));
@@ -54,14 +56,14 @@ public class XmlSchemaValidator implements ValueProcessor {
             Source source = new StreamSource(new ByteArrayInputStream(xml.getBytes()));
             validator.validate(source);
             log.debug("Value successfully validated against schema '" + schemaName + "'");
-			return null;
+			return value;
         } catch (Exception e) {
 			log.warn("Value did not validate against schema '" + schemaName + "': " + e);
 			throw new RegurgitatorException("Value did not validate against schema + '" + schemaName + "'", e);
         }
     }
 
-	public static class ByteStreamLSInput implements LSInput {
+	private static class ByteStreamLSInput implements LSInput {
 		private UnsupportedOperationException uoe = new UnsupportedOperationException("Can only use byte stream");
 		private InputStream byteStream;
 		public String getBaseURI() { return null; }

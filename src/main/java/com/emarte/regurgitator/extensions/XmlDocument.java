@@ -20,16 +20,13 @@ class XmlDocument {
 		}
 
 		log.debug("Parsing xml document");
-		Document document = parseXmlDocument(documentText);
-		cache.set(documentText, document);
-		return document;
-    }
 
-    private static Document parseXmlDocument(String documentText) throws RegurgitatorException {
-        try {
-            return new SAXReader().read(new StringReader(documentText));
-        } catch (DocumentException e) {
-            throw new RegurgitatorException("Error parsing xml document: ", e);
-        }
+		try {
+			Document document = new SAXReader().read(new StringReader(documentText));;
+			cache.set(documentText, document);
+			return document;
+		} catch (DocumentException e) {
+			throw new RegurgitatorException("Error parsing xml document: ", e);
+		}
     }
 }

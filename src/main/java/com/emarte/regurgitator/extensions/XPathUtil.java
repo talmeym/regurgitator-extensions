@@ -9,15 +9,15 @@ public class XpathUtil {
 	public static Object strip(Object extract) {
 		if (extract instanceof Collection) {
 			if (((Collection) extract).size() > 0) {
-				List<Object> strings = new ArrayList<Object>();
+				List<Object> objs = new ArrayList<Object>();
 
 				for (Node node : (Collection<Node>) extract) {
 					if (node.getText() != null && node.getText().length() > 0) {
-						strings.add(node.getText());
+						objs.add(node.getText());
 					}
 				}
 
-				return strings;
+				return objs;
 			}
 
 			return null;

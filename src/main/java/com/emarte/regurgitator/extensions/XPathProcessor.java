@@ -23,13 +23,9 @@ public class XpathProcessor implements ValueProcessor {
 
 	@Override
 	public Object process(Object value, Message message) throws RegurgitatorException {
-		return process(getDocument(stringify(value)));
-	}
-
-	public Object process(Document document) throws RegurgitatorException {
 		log.debug("Applying xpath '" + xpath + "'");
 		XPath xpathSelector = createXPath(xpath);
 		xpathSelector.setNamespaceURIs(namespaces);
-		return strip(xpathSelector.evaluate(document));
+		return strip(xpathSelector.evaluate(getDocument(stringify(value))));
 	}
 }
