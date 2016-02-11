@@ -12,14 +12,16 @@ public class FreemarkerBuilder extends AbstractValueBuilder {
     private static final Log log = Log.getLog(FreemarkerBuilder.class);
 
 	private final ValueSource valueSource;
+	private boolean allContexts;
 
-	public FreemarkerBuilder(ValueSource valueSource) {
+	public FreemarkerBuilder(ValueSource valueSource, boolean allContexts) {
 		this.valueSource = valueSource;
+		this.allContexts = allContexts;
 	}
 
     @Override
     public String build(Message message) throws RegurgitatorException {
-		Map<String, Object> valueMap = getValueMap(message);
+		Map<String, Object> valueMap = getValueMap(message, allContexts);
 		log.debug("Building value from value map: " + valueMap);
 
 		Object value = valueSource.getValue(message, log);

@@ -1,1 +1,1 @@
-<doc>Hello ${name}. Please to meet you.</doc>
+<doc>Hello ${name} and ${something_something.name}. Please to meet you.</doc>

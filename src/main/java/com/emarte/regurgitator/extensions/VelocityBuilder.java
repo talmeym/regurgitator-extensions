@@ -22,8 +22,10 @@ public class VelocityBuilder extends AbstractValueBuilder {
     }
 
 	private ValueSource valueSource;
+	private boolean allContexts;
 
-	public VelocityBuilder(ValueSource valueSource) throws RegurgitatorException {
+	public VelocityBuilder(ValueSource valueSource, boolean allContexts) throws RegurgitatorException {
+		this.allContexts = allContexts;
 		if(initError != null) {
 			throw new RegurgitatorException("Error initialising Velocity", initError);
 		}
@@ -33,7 +35,7 @@ public class VelocityBuilder extends AbstractValueBuilder {
 
 	@Override
 	public String build(Message message) throws RegurgitatorException {
-		Map<String, Object> valueMap = getValueMap(message);
+		Map<String, Object> valueMap = getValueMap(message, allContexts);
 		log.debug("Building value from value map: " + valueMap);
 
 		Object value = valueSource.getValue(message, log);
