@@ -15,12 +15,12 @@ public abstract class AbstractValueBuilder implements ValueBuilder {
 		Map<String, Object> values = new HashMap<String, Object>();
 
 		for(Parameters context: message.contexts()) {
-			if(context != message.getParameters()) {
-				values.put(makeTemplateSafe(stringify(context.getId())), getContextValues(context));
-			} else {
+			if(ContextLocation.PARAMETER_CONTEXT.equals(context.getId())) {
 				for (Object id: context.ids()) {
 					values.put(makeTemplateSafe(stringify(id)), context.getValue(id));
 				}
+			} else {
+				values.put(makeTemplateSafe(stringify(context.getId())), getContextValues(context));
 			}
 		}
 
