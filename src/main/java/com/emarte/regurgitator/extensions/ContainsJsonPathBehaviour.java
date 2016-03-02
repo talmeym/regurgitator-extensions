@@ -6,8 +6,8 @@ import com.jayway.jsonpath.*;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.jayway.jsonpath.JsonPath.compile;
 
-public class ContainsJsonPath implements ConditionBehaviour {
-	private static final Log log = Log.getLog(ContainsJsonPath.class);
+public class ContainsJsonPathBehaviour implements ConditionBehaviour {
+	private static final Log log = Log.getLog(ContainsJsonPathBehaviour.class);
 
 	@Override
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) throws RegurgitatorException {
