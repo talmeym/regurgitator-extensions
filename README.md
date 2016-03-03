@@ -7,8 +7,8 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 ## steps
 
 regurgitator-extensions provides the following steps:
-- ``json-parameter`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#json-parameter)) create a parameter, extracting its value using json-path
-- ``xml-parameter`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#xml-parameter)) create a parameter, extracting its value using xpath
+- ``json-parameter`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#json-parameter),[json](https://github.com/talmeym/regurgitator-extensions-json#json-parameter)) create a parameter, extracting its value using json-path
+- ``xml-parameter`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#xml-parameter),[json](https://github.com/talmeym/regurgitator-extensions-json#xml-parameter)) create a parameter, extracting its value using xpath
 
 ## constructs
 
