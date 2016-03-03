@@ -21,8 +21,8 @@ public class XmlParameterTest {
 
 	@Test
 	public void testXmlDocument() throws RegurgitatorException {
-		XmlParameter toTest1 = new XmlParameter("toTest1", new ParameterPrototype("names", LIST_OF_STRING, REPLACE), "parameters", new ContextLocation("test:input"), new XpathProcessor("/doc/person/name", new HashMap<String, String>()), null);
-		XmlParameter toTest2 = new XmlParameter("toTest2", new ParameterPrototype("ages", LIST_OF_NUMBER, REPLACE), "parameters", new ContextLocation("test:input"), new XpathProcessor("/doc/person/age", new HashMap<String, String>()), null);
+		XmlParameter toTest1 = new XmlParameter("toTest1", new ParameterPrototype("names", LIST_OF_STRING, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new XpathProcessor("/doc/person/name", new HashMap<String, String>()), null);
+		XmlParameter toTest2 = new XmlParameter("toTest2", new ParameterPrototype("ages", LIST_OF_NUMBER, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new XpathProcessor("/doc/person/age", new HashMap<String, String>()), null);
 
 		Message message = new Message(null);
 		message.getContext("test").setValue("input", STRING, xml);
