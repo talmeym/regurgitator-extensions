@@ -13,10 +13,14 @@ regurgitator-extensions provides the following steps:
 ## constructs
 
 regurgitator-extensions provides the following constructs:
+### value builders
+- ``freemarker-builder`` build a parameter value using a freemarker template
+- ``velocity-builder`` build a parameter value using a velocity template
+
+### value processors
 - ``json-path-processor`` process a parameter value, extracting from it using json-path
 - ``xpath-processor`` process a parameter value, extracting from it using xpath
-- ``freemarker-builder`` build a parameter value using a freemarker template
 - ``freemarker-processor`` process a parameter value, formatting the value using a freemarker template
-- ``velocity-builder`` build a parameter value using a velocity template
 - ``velocity-processor`` process a parameter value, formatting the value using a velocity template
 - ``xml-schema-validator`` process a parameter value, validating it against an xml schema
+
