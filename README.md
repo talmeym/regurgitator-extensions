@@ -6,10 +6,14 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 ## steps
 
-regurgitator-extensions provides the following steps / constructs:
+regurgitator-extensions provides the following steps:
 - ``json-parameter`` create a parameter, extracting its value using json-path
-- ``json-path-processor`` process a parameter value, extracting from it using json-path
 - ``xml-parameter`` create a parameter, extracting its value using xpath
+
+## constructs
+
+regurgitator-extensions provides the following constructs:
+- ``json-path-processor`` process a parameter value, extracting from it using json-path
 - ``xpath-processor`` process a parameter value, extracting from it using xpath
 - ``freemarker-builder`` build a parameter value using a freemarker template
 - ``freemarker-processor`` process a parameter value, formatting the value using a freemarker template
