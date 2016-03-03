@@ -22,7 +22,7 @@ class XmlDocument {
 		log.debug("Parsing xml document");
 
 		try {
-			Document document = new SAXReader().read(new StringReader(documentText));;
+			Document document = new SAXReader().read(new StringReader(documentText));
 			cache.set(documentText, document);
 			return document;
 		} catch (DocumentException e) {
