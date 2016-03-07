@@ -14,8 +14,8 @@ regurgitator-extensions provides the following steps:
 
 regurgitator-extensions provides the following constructs:
 #### value builders
-- ``freemarker-builder`` build a parameter value using a freemarker template
-- ``velocity-builder`` build a parameter value using a velocity template
+- ``freemarker-builder`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#freemarker-builder), [json](https://github.com/talmeym/regurgitator-extensions-json#freemarker-builder)) build a parameter value using a freemarker template
+- ``velocity-builder`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#velocity-builder), [json](https://github.com/talmeym/regurgitator-extensions-json#velocity-builder)) build a parameter value using a velocity template
 
 #### value processors
 - ``json-path-processor`` process a parameter value, extracting from it using json-path
