@@ -20,7 +20,7 @@ regurgitator-extensions provides the following constructs:
 #### value processors
 - ``json-path-processor`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#json-path-processor), [json](https://github.com/talmeym/regurgitator-extensions-json#json-path-processor)) process a parameter value, extracting from it using json-path
 - ``xpath-processor`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#xpath-processor), [json](https://github.com/talmeym/regurgitator-extensions-json#xpath-processor)) process a parameter value, extracting from it using xpath
-- ``freemarker-processor`` process a parameter value, formatting the value using a freemarker template
-- ``velocity-processor`` process a parameter value, formatting the value using a velocity template
-- ``xml-schema-validator`` process a parameter value, validating it against an xml schema
+- ``freemarker-processor`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#freemarker-processor), [json](https://github.com/talmeym/regurgitator-extensions-json#freemarker-processor)) process a parameter value, formatting the value using a freemarker template
+- ``velocity-processor`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#velocity-processor), [json](https://github.com/talmeym/regurgitator-extensions-json#velocity-processor)) process a parameter value, formatting the value using a velocity template
+- ``xml-schema-validator`` ([xml](https://github.com/talmeym/regurgitator-extensions-xml#xml-schema-validator), [json](https://github.com/talmeym/regurgitator-extensions-json#xml-schema-validator)) process a parameter value, validating it against an xml schema
 
