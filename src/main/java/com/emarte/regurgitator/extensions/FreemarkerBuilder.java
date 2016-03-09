@@ -6,10 +6,11 @@ import freemarker.template.*;
 import java.io.StringWriter;
 import java.util.Map;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class FreemarkerBuilder extends AbstractValueBuilder {
-    private static final Log log = Log.getLog(FreemarkerBuilder.class);
+    private static final Log log = getLog(FreemarkerBuilder.class);
 
 	private final ValueSource valueSource;
 	private boolean allContexts;

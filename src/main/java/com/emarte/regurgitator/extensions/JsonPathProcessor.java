@@ -3,12 +3,13 @@ package com.emarte.regurgitator.extensions;
 import com.emarte.regurgitator.core.*;
 import com.jayway.jsonpath.JsonPath;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.emarte.regurgitator.extensions.JsonPathUtil.strip;
 import static com.jayway.jsonpath.JsonPath.compile;
 
 public class JsonPathProcessor implements ValueProcessor {
-	private static final Log log = Log.getLog(JsonPathProcessor.class);
+	private static final Log log = getLog(JsonPathProcessor.class);
 
 	private final JsonPath path;
 

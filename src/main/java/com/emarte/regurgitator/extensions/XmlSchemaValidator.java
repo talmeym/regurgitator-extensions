@@ -9,12 +9,13 @@ import javax.xml.validation.*;
 import java.io.*;
 
 import static com.emarte.regurgitator.core.FileUtil.*;
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 import static javax.xml.validation.SchemaFactory.newInstance;
 
 public class XmlSchemaValidator implements ValueProcessor {
-    private static final Log log = Log.getLog(XmlSchemaValidator.class);
+    private static final Log log = getLog(XmlSchemaValidator.class);
 	private static final SchemaFactory factory = newInstance(W3C_XML_SCHEMA_NS_URI);
 
 	static {

@@ -3,11 +3,12 @@ package com.emarte.regurgitator.extensions;
 import com.emarte.regurgitator.core.*;
 import com.jayway.jsonpath.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.jayway.jsonpath.JsonPath.compile;
 
 public class ContainsJsonPathBehaviour implements ConditionBehaviour {
-	private static final Log log = Log.getLog(ContainsJsonPathBehaviour.class);
+	private static final Log log = getLog(ContainsJsonPathBehaviour.class);
 
 	@Override
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) throws RegurgitatorException {

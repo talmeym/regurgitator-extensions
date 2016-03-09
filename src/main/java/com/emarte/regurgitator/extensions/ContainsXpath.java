@@ -5,13 +5,14 @@ import org.dom4j.XPath;
 
 import java.util.Map;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
-import static com.emarte.regurgitator.extensions.XpathUtil.strip;
 import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
+import static com.emarte.regurgitator.extensions.XpathUtil.strip;
 import static org.dom4j.DocumentHelper.createXPath;
 
 public class ContainsXpath implements ConditionBehaviour {
-	private static final Log log = Log.getLog(ContainsXpath.class);
+	private static final Log log = getLog(ContainsXpath.class);
 
 	private final Map<String, String> namespaceUris;
 

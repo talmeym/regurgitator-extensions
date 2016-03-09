@@ -7,9 +7,10 @@ import org.dom4j.io.SAXReader;
 import java.io.StringReader;
 
 import static com.emarte.regurgitator.core.CacheProvider.Cache;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 class XmlDocument {
-	private static final Log log = Log.getLog(XmlDocument.class);
+	private static final Log log = getLog(XmlDocument.class);
 
     static Document getDocument(String documentText) throws RegurgitatorException {
 		Cache<Document> cache = Caching.getCache(Document.class);

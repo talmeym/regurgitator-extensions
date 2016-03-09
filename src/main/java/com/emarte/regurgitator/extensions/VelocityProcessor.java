@@ -7,8 +7,10 @@ import org.apache.velocity.app.Velocity;
 import java.io.StringWriter;
 import java.util.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 public class VelocityProcessor implements ValueProcessor {
-	protected Log log = Log.getLog(AbstractValueBuilder.class);
+	protected Log log = getLog(AbstractValueBuilder.class);
 	private static Exception initError;
 
 	static {

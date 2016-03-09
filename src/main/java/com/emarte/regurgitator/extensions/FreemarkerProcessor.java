@@ -6,10 +6,11 @@ import freemarker.template.*;
 import java.io.StringWriter;
 import java.util.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class FreemarkerProcessor implements ValueProcessor {
-    private static final Log log = Log.getLog(FreemarkerProcessor.class);
+    private static final Log log = getLog(FreemarkerProcessor.class);
 
 	private String templateValue;
 

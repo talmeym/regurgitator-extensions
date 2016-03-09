@@ -7,10 +7,11 @@ import org.apache.velocity.app.Velocity;
 import java.io.StringWriter;
 import java.util.Map;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class VelocityBuilder extends AbstractValueBuilder {
-	private static final Log log = Log.getLog(VelocityBuilder.class);
+	private static final Log log = getLog(VelocityBuilder.class);
 	private static Exception initError;
 
     static {

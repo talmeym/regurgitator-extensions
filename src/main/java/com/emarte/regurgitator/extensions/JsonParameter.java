@@ -2,8 +2,10 @@ package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 public class JsonParameter extends ParameterExtractor {
-	private final Log log = Log.getLog(this);
+	private final Log log = getLog(this);
     private final ValueSource valueSource;
 	private final JsonPathProcessor jsonPathProcessor;
 
