@@ -14,13 +14,16 @@ public abstract class AbstractValueBuilder implements ValueBuilder {
 	private Map<String, Object> getAllContextValues(Message message) {
 		Map<String, Object> values = new HashMap<String, Object>();
 
+		Object sessionId = message.hasSession() ? message.getSession().getId() : null;
+
 		for(Parameters context: message.contexts()) {
 			if(ContextLocation.PARAMETER_CONTEXT.equals(context.getId())) {
 				for (Object id: context.ids()) {
 					values.put(makeTemplateSafe(stringify(id)), context.getValue(id));
 				}
 			} else {
-				values.put(makeTemplateSafe(stringify(context.getId())), getContextValues(context));
+				Object id = context.getId().equals(sessionId) ? ContextLocation.SESSION_CONTEXT : context.getId();
+				values.put(makeTemplateSafe(stringify(id)), getContextValues(context));
 			}
 		}
 
