@@ -1,19 +1,23 @@
 package com.emarte.regurgitator.extensions;
 
-import org.dom4j.Node;
+import org.w3c.dom.*;
 
 import java.util.*;
 
 @SuppressWarnings({"unchecked"})
 public class XpathUtil {
 	public static Object strip(Object extract) {
+		if(extract != null && extract.equals("")) {
+			extract = null;
+		}
+
 		if (extract instanceof Collection) {
 			if (((Collection) extract).size() > 0) {
 				List<Object> objs = new ArrayList<Object>();
 
 				for (Node node : (Collection<Node>) extract) {
-					if (node.getText() != null && node.getText().length() > 0) {
-						objs.add(node.getText());
+					if (node.getTextContent() != null && node.getTextContent().length() > 0) {
+						objs.add(node.getTextContent());
 					}
 				}
 
@@ -23,9 +27,20 @@ public class XpathUtil {
 			return null;
 		}
 
+		if(extract instanceof NodeList) {
+			NodeList nodeList = (NodeList) extract;
+			List<Object> list = new ArrayList<Object>(nodeList.getLength());
+
+			for(int i = 0; i < nodeList.getLength(); i++) {
+				list.add(nodeList.item(i).getTextContent());
+			}
+
+			return list.size() == 1 ? list.get(0) : list;
+		}
+
 		if (extract instanceof Node) {
-			if (((Node) extract).getText().length() > 0) {
-				return ((Node)extract).getText();
+			if (((Node) extract).getTextContent().length() > 0) {
+				return ((Node)extract).getTextContent();
 			}
 
 			return null;

@@ -1,10 +1,10 @@
 package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
-import org.dom4j.*;
-import org.dom4j.io.SAXReader;
+import org.w3c.dom.Document;
 
-import java.io.StringReader;
+import javax.xml.parsers.*;
+import java.io.ByteArrayInputStream;
 
 import static com.emarte.regurgitator.core.CacheProvider.Cache;
 import static com.emarte.regurgitator.core.Log.getLog;
@@ -23,10 +23,13 @@ class XmlDocument {
 		log.debug("Parsing xml document");
 
 		try {
-			Document document = new SAXReader().read(new StringReader(documentText));
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			dbFactory.setNamespaceAware(true);
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document document = dBuilder.parse(new ByteArrayInputStream(documentText.getBytes()));
 			cache.set(documentText, document);
 			return document;
-		} catch (DocumentException e) {
+		} catch (Exception e) {
 			throw new RegurgitatorException("Error parsing xml document: ", e);
 		}
     }

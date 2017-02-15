@@ -50,11 +50,10 @@ public class XmlSchemaValidator implements ValueProcessor {
 
 	@Override
     public Object process(Object value, Message message) throws RegurgitatorException {
-		String xml = stringify(value);
 
 		try {
             Validator validator = schema.newValidator();
-            Source source = new StreamSource(new ByteArrayInputStream(xml.getBytes()));
+            Source source = new StreamSource(new ByteArrayInputStream(stringify(value).getBytes()));
             validator.validate(source);
             log.debug("Value successfully validated against schema '" + schemaName + "'");
 			return value;

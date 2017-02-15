@@ -1,15 +1,14 @@
 package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
-import org.dom4j.XPath;
 
+import javax.xml.xpath.*;
 import java.util.Map;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
 import static com.emarte.regurgitator.extensions.XpathUtil.strip;
-import static org.dom4j.DocumentHelper.createXPath;
 
 public class ContainsXpath implements ConditionBehaviour {
 	private static final Log log = getLog(ContainsXpath.class);
@@ -25,15 +24,21 @@ public class ContainsXpath implements ConditionBehaviour {
 		boolean contains = false;
 
 		if (parameter != null) {
-			XPath xpathSelector = createXPath(conditionValue);
+			try {
+				XPathFactory xPathfactory = XPathFactory.newInstance();
+				XPath xpath = xPathfactory.newXPath();
 
-			if (namespaceUris != null) {
-				xpathSelector.setNamespaceURIs(namespaceUris);
+				if (namespaceUris != null) {
+					xpath.setNamespaceContext(new SimpleNamespaceContext(namespaceUris));
+				}
+
+				XPathExpression expr = xpath.compile(conditionValue);
+				Object value = strip(expr.evaluate(getDocument(stringify(parameter))));
+				log.debug("Parameter " + (value != null ? "satisfies" : "does not satisfy") + " xpath '" + conditionValue + "'");
+				contains = value != null;
+			} catch (XPathExpressionException e) {
+				throw new RegurgitatorException("Error evaluating xpath", e);
 			}
-
-			Object value = strip(xpathSelector.evaluate(getDocument(stringify(parameter))));
-			log.debug("Parameter " + (value != null ? "satifies" : "does not satisfy") + " xpath '" + conditionValue + "'");
-			contains = value != null;
 		}
 
 		return contains == expectation;
