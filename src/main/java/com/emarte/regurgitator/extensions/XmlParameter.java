@@ -7,9 +7,9 @@ import static com.emarte.regurgitator.core.Log.getLog;
 public class XmlParameter extends ParameterExtractor {
 	private final Log log = getLog(this);
 	private final ValueSource valueSource;
-	private final XpathProcessor xpathProcessor;
+	private final XPathProcessor xpathProcessor;
 
-	public XmlParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, XpathProcessor xpathProcessor, ValueProcessor processor) {
+	public XmlParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, XPathProcessor xpathProcessor, ValueProcessor processor) {
 		super(id, prototype, context, processor);
 		this.valueSource = valueSource;
 		this.xpathProcessor = xpathProcessor;

@@ -5,7 +5,7 @@ import org.w3c.dom.*;
 import java.util.*;
 
 @SuppressWarnings({"unchecked"})
-public class XpathUtil {
+public class XPathUtil {
 	public static Object strip(Object extract) {
 		if(extract != null && extract.equals("")) {
 			extract = null;

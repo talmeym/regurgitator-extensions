@@ -7,15 +7,15 @@ import java.util.Map;
 
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
-import static com.emarte.regurgitator.extensions.XpathUtil.strip;
+import static com.emarte.regurgitator.extensions.XPathUtil.strip;
 
-public class XpathProcessor implements ValueProcessor {
-	private static final Log log = Log.getLog(XpathProcessor.class);
+public class XPathProcessor implements ValueProcessor {
+	private static final Log log = Log.getLog(XPathProcessor.class);
 
 	private final Map<String, String> namespaceUris;
 	private String xpath;
 
-	public XpathProcessor(String xpath, Map<String, String> namespaceUris) {
+	public XPathProcessor(String xpath, Map<String, String> namespaceUris) {
 		this.xpath = xpath;
 		this.namespaceUris = namespaceUris;
 	}
