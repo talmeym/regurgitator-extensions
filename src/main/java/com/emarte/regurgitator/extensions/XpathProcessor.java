@@ -9,13 +9,13 @@ import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.emarte.regurgitator.extensions.XmlDocument.getDocument;
 import static com.emarte.regurgitator.extensions.XPathUtil.strip;
 
-public class XPathProcessor implements ValueProcessor {
-	private static final Log log = Log.getLog(XPathProcessor.class);
+public class XpathProcessor implements ValueProcessor {
+	private static final Log log = Log.getLog(XpathProcessor.class);
 
 	private final Map<String, String> namespaceUris;
 	private String xpath;
 
-	public XPathProcessor(String xpath, Map<String, String> namespaceUris) {
+	public XpathProcessor(String xpath, Map<String, String> namespaceUris) {
 		this.xpath = xpath;
 		this.namespaceUris = namespaceUris;
 	}

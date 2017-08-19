@@ -1,7 +1,7 @@
 package com.emarte.regurgitator.test;
 
 import com.emarte.regurgitator.core.*;
-import com.emarte.regurgitator.extensions.XPathProcessor;
+import com.emarte.regurgitator.extensions.XpathProcessor;
 import org.junit.*;
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.*;
 import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static org.junit.Assert.assertEquals;
 
-public class XPathProcessorTest {
+public class XpathProcessorTest {
 	private String xml;
 
 	@Before
@@ -20,13 +20,13 @@ public class XPathProcessorTest {
 
 	@Test
 	public void testThis() throws RegurgitatorException {
-		XPathProcessor XPathProcessor = new XPathProcessor("/doc/person[name='miles']/age", null);
-		assertEquals("37", XPathProcessor.process(xml, null));
+		XpathProcessor XpathProcessor = new XpathProcessor("/doc/person[name='miles']/age", null);
+		assertEquals("37", XpathProcessor.process(xml, null));
 	}
 
 	@Test
 	public void testThat() throws RegurgitatorException {
-		XPathProcessor XPathProcessor = new XPathProcessor("/doc/person/age", null);
-		assertEquals(Arrays.asList("37", "42"), XPathProcessor.process(xml, null));
+		XpathProcessor XpathProcessor = new XpathProcessor("/doc/person/age", null);
+		assertEquals(Arrays.asList("37", "42"), XpathProcessor.process(xml, null));
 	}
 }
