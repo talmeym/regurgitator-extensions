@@ -4,6 +4,8 @@ import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import java.util.*;
 
+import static java.util.Collections.EMPTY_SET;
+
 class SimpleNamespaceContext implements NamespaceContext {
 	private Map<String, String> urisByPrefix = new HashMap<String, String>();
 
@@ -51,7 +53,7 @@ class SimpleNamespaceContext implements NamespaceContext {
 		if (prefixesByURI.containsKey(namespaceURI)) {
 			return prefixesByURI.get(namespaceURI).iterator();
 		} else {
-			return Collections.EMPTY_SET.iterator();
+			return EMPTY_SET.iterator();
 		}
 	}
 
