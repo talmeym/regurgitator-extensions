@@ -22,7 +22,7 @@ public class XmlParameter extends ParameterExtractor {
     @Override
     public Object extractValue(Message message) throws RegurgitatorException {
         Object value = xpathProcessor.process(valueSource.getValue(message, log), message);
-        log.debug("Extracted " + (value != null ? "value '" + value + "'" : "no value") + " for parameter '" + getId() + '\'');
+        log.debug("Extracted " + (value != null ? "value '" + value + "'" : "no value") + " for parameter '{}'", getId());
         return value;
     }
 }

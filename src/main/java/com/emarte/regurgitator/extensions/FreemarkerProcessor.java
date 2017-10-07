@@ -24,7 +24,7 @@ public class FreemarkerProcessor implements ValueProcessor {
     @Override
     public Object process(Object value, Message message) throws RegurgitatorException {
         Map<String, Object> valueMap = singletonMap("value", value);
-        log.debug("Building value from template value '" + templateValue + "' and value map: " + valueMap);
+        log.debug("Building value from template value '{}' and value map: {}", templateValue, valueMap);
         return buildFrom(valueMap, stringify(templateValue));
     }
 }

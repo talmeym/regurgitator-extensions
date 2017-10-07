@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.util.*;
 
 import static com.emarte.regurgitator.core.Log.getLog;
+import static java.util.Collections.singletonMap;
 
 public class VelocityProcessor implements ValueProcessor {
     private static final Log log = getLog(VelocityProcessor.class);
@@ -29,7 +30,7 @@ public class VelocityProcessor implements ValueProcessor {
 
     public VelocityProcessor(String templateValue) throws RegurgitatorException {
         if(initError != null) {
-            throw new RegurgitatorException("Error initialising velocity: " + initError);
+            throw new RegurgitatorException("Error initialising velocity", initError);
         }
 
         this.templateValue = templateValue;
@@ -37,9 +38,8 @@ public class VelocityProcessor implements ValueProcessor {
 
     @Override
     public Object process(Object value, Message message) throws RegurgitatorException {
-        Map<String, Object> valueMap = new HashMap<String, Object>();
-        valueMap.put("value", value);
-        log.debug("Building value from template value '" + templateValue + "' and value map: " + valueMap);
+        Map<String, Object> valueMap = singletonMap("value", value);
+        log.debug("Building value from template value '{}' and value map: {}", templateValue, valueMap);
 
         try {
             VelocityContext context = new VelocityContext(valueMap);

@@ -25,7 +25,7 @@ public class FreemarkerBuilder extends AbstractValueBuilder {
     @Override
     public String build(Message message) throws RegurgitatorException {
         Map<String, Object> valueMap = getValueMap(message, allContexts);
-        log.debug("Building value from value map: " + valueMap);
+        log.debug("Building value from value map: {}", valueMap);
         return buildFrom(valueMap, stringify(valueSource.getValue(message, log)));
     }
 }

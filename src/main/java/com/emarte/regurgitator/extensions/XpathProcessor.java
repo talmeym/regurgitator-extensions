@@ -25,7 +25,7 @@ public class XpathProcessor implements ValueProcessor {
 
     @Override
     public Object process(Object value, Message message) throws RegurgitatorException {
-        log.debug("Applying xpath '" + xpath + "'");
+        log.debug("Applying xpath '{}'", xpath);
 
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();

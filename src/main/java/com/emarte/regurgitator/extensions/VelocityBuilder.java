@@ -41,7 +41,7 @@ public class VelocityBuilder extends AbstractValueBuilder {
     @Override
     public String build(Message message) throws RegurgitatorException {
         Map<String, Object> valueMap = getValueMap(message, allContexts);
-        log.debug("Building value from value map: " + valueMap);
+        log.debug("Building value from value map: {}", valueMap);
 
         Object value = valueSource.getValue(message, log);
 

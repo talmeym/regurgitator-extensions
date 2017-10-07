@@ -23,10 +23,10 @@ public class ContainsJsonPathBehaviour implements ConditionBehaviour {
 
             try {
                 Object value = jsonPath.read(stringify(parameter));
-                log.debug("Parameter " + (value != null ?  "satisfies"  : "does not satisfy") + " json path '" + conditionValue + "'");
+                log.debug("Parameter " + (value != null ?  "satisfies"  : "does not satisfy") + " json path '{}'", conditionValue);
                 contains = value != null;
             } catch (PathNotFoundException pnfe) {
-                log.debug("Parameter does not satisfy json path '" + conditionValue + "'");
+                log.debug("Parameter does not satisfy json path '{}'", conditionValue);
             }
         }
 

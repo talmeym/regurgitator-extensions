@@ -37,7 +37,7 @@ public class ContainsXpath implements ConditionBehaviour {
 
                 XPathExpression expr = xpath.compile(conditionValue);
                 Object value = strip(expr.evaluate(getDocument(stringify(parameter))));
-                log.debug("Parameter " + (value != null ? "satisfies" : "does not satisfy") + " xpath '" + conditionValue + "'");
+                log.debug("Parameter " + (value != null ? "satisfies" : "does not satisfy") + " xpath '{}'", conditionValue);
                 contains = value != null;
             } catch (XPathExpressionException e) {
                 throw new RegurgitatorException("Error evaluating xpath", e);

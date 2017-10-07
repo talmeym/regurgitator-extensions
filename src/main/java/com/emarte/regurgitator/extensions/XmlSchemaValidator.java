@@ -59,10 +59,10 @@ public class XmlSchemaValidator implements ValueProcessor {
             Validator validator = schema.newValidator();
             Source source = new StreamSource(new ByteArrayInputStream(stringify(value).getBytes()));
             validator.validate(source);
-            log.debug("Value successfully validated against schema '" + schemaName + "'");
+            log.debug("Value successfully validated against schema '{}'", schemaName);
             return value;
         } catch (Exception e) {
-            log.warn("Value did not validate against schema '" + schemaName + "': " + e);
+            log.warn("Value did not validate against schema '{}'", schemaName);
             throw new RegurgitatorException("Value did not validate against schema + '" + schemaName + "'", e);
         }
     }

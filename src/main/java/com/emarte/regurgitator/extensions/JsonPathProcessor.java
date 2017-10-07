@@ -23,7 +23,7 @@ public class JsonPathProcessor implements ValueProcessor {
     @Override
     public Object process(Object value, Message message) throws RegurgitatorException {
         try {
-            log.debug("Applying jsonpath '" + path.getPath() + "'");
+            log.debug("Applying jsonpath '{}'", path.getPath());
             return strip(path.read(stringify(value)));
         } catch(Exception e) {
             throw new RegurgitatorException("Error extracting json parameter using path: '" + path.getPath() + "'", e);
