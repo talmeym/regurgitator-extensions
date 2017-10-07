@@ -1,51 +1,57 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.extensions;
 
 import org.w3c.dom.*;
 
 import java.util.*;
 
-@SuppressWarnings({"unchecked"})
-public class XPathUtil {
-	public static Object strip(Object extract) {
-		if(extract != null && extract.equals("")) {
-			extract = null;
-		}
+@SuppressWarnings("unchecked")
+class XPathUtil {
+    static Object strip(Object extract) {
+        if(extract != null && extract.equals("")) {
+            extract = null;
+        }
 
-		if (extract instanceof Collection) {
-			if (((Collection) extract).size() > 0) {
-				List<Object> objs = new ArrayList<Object>();
+        if (extract instanceof Collection) {
+            Collection<Node> nodeCollection = (Collection<Node>) extract;
 
-				for (Node node : (Collection<Node>) extract) {
-					if (node.getTextContent() != null && node.getTextContent().length() > 0) {
-						objs.add(node.getTextContent());
-					}
-				}
+            if (nodeCollection.size() > 0) {
+                List<Object> objs = new ArrayList<Object>();
 
-				return objs;
-			}
+                for (Node node : nodeCollection) {
+                    if (node.getTextContent() != null && node.getTextContent().length() > 0) {
+                        objs.add(node.getTextContent());
+                    }
+                }
 
-			return null;
-		}
+                return objs;
+            }
 
-		if(extract instanceof NodeList) {
-			NodeList nodeList = (NodeList) extract;
-			List<Object> list = new ArrayList<Object>(nodeList.getLength());
+            return null;
+        }
 
-			for(int i = 0; i < nodeList.getLength(); i++) {
-				list.add(nodeList.item(i).getTextContent());
-			}
+        if(extract instanceof NodeList) {
+            NodeList nodeList = (NodeList) extract;
+            List<Object> list = new ArrayList<Object>(nodeList.getLength());
 
-			return list.size() == 1 ? list.get(0) : list;
-		}
+            for(int i = 0; i < nodeList.getLength(); i++) {
+                list.add(nodeList.item(i).getTextContent());
+            }
 
-		if (extract instanceof Node) {
-			if (((Node) extract).getTextContent().length() > 0) {
-				return ((Node)extract).getTextContent();
-			}
+            return list.size() == 1 ? list.get(0) : list;
+        }
 
-			return null;
-		}
+        if (extract instanceof Node) {
+            if (((Node) extract).getTextContent().length() > 0) {
+                return ((Node)extract).getTextContent();
+            }
 
-		return extract;
-	}
+            return null;
+        }
+
+        return extract;
+    }
 }

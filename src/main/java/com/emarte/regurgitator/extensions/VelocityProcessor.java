@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
@@ -10,10 +14,10 @@ import java.util.*;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class VelocityProcessor implements ValueProcessor {
-	protected Log log = getLog(AbstractValueBuilder.class);
-	private static Exception initError;
+    private static final Log log = getLog(VelocityProcessor.class);
+    private static Exception initError;
 
-	static {
+    static {
         try {
             Velocity.init();
         } catch (Exception e) {
@@ -21,30 +25,30 @@ public class VelocityProcessor implements ValueProcessor {
         }
     }
 
-	private String templateValue;
+    private String templateValue;
 
-	public VelocityProcessor(String templateValue) throws RegurgitatorException {
-		if(initError != null) {
-			throw new RegurgitatorException("Error initalising velocity: " + initError);
-		}
+    public VelocityProcessor(String templateValue) throws RegurgitatorException {
+        if(initError != null) {
+            throw new RegurgitatorException("Error initialising velocity: " + initError);
+        }
 
-		this.templateValue = templateValue;
-	}
+        this.templateValue = templateValue;
+    }
 
-	@Override
-	public Object process(Object value, Message message) throws RegurgitatorException {
-		Map<String, Object> valueMap = new HashMap<String, Object>();
-		valueMap.put("value", value);
-		log.debug("Building value from template value '" + templateValue + "' and value map: " + valueMap);
+    @Override
+    public Object process(Object value, Message message) throws RegurgitatorException {
+        Map<String, Object> valueMap = new HashMap<String, Object>();
+        valueMap.put("value", value);
+        log.debug("Building value from template value '" + templateValue + "' and value map: " + valueMap);
 
-		try {
-			VelocityContext context = new VelocityContext(valueMap);
-			StringWriter writer = new StringWriter();
-			Velocity.evaluate(context, writer, getClass().toString(), templateValue);
-			writer.close();
-			return writer.toString();
-		} catch (Exception e) {
-			throw new RegurgitatorException("Error building velocity message", e);
-		}
-	}
+        try {
+            VelocityContext context = new VelocityContext(valueMap);
+            StringWriter writer = new StringWriter();
+            Velocity.evaluate(context, writer, getClass().toString(), templateValue);
+            writer.close();
+            return writer.toString();
+        } catch (Exception e) {
+            throw new RegurgitatorException("Error building velocity message", e);
+        }
+    }
 }
