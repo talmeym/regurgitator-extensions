@@ -11,15 +11,15 @@ import java.io.StringWriter;
 import java.util.Map;
 
 class FreemarkerUtil {
-	static String buildFrom(Map<String, Object> valueMap, String templateText) throws RegurgitatorException {
-		try {
-			StringWriter writer = new StringWriter();
-			Template template = new Template("template", templateText, new Configuration());
-			template.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
-			template.process(valueMap, writer);
-			return writer.toString();
-		} catch (Exception e) {
-			throw new RegurgitatorException("Error building freemarker message", e);
-		}
-	}
+    static String buildFrom(Map<String, Object> valueMap, String templateText) throws RegurgitatorException {
+        try {
+            StringWriter writer = new StringWriter();
+            Template template = new Template("template", templateText, new Configuration());
+            template.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
+            template.process(valueMap, writer);
+            return writer.toString();
+        } catch (Exception e) {
+            throw new RegurgitatorException("Error building freemarker message", e);
+        }
+    }
 }
