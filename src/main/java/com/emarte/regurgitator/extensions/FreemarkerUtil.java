@@ -5,17 +5,19 @@
 package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.RegurgitatorException;
-import freemarker.template.*;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 
 import java.io.StringWriter;
 import java.util.Map;
 
 class FreemarkerUtil {
+    private static final Configuration CONFIGURATION = new Configuration();
+
     static String buildFrom(Map<String, Object> valueMap, String templateText) throws RegurgitatorException {
         try {
             StringWriter writer = new StringWriter();
-            Template template = new Template("template", templateText, new Configuration());
-            template.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
+            Template template = new Template("template", templateText, CONFIGURATION);
             template.process(valueMap, writer);
             return writer.toString();
         } catch (Exception e) {

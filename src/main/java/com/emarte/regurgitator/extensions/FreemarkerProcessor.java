@@ -9,7 +9,6 @@ import com.emarte.regurgitator.core.*;
 import java.util.Map;
 
 import static com.emarte.regurgitator.core.Log.getLog;
-import static com.emarte.regurgitator.core.StringType.stringify;
 import static com.emarte.regurgitator.extensions.FreemarkerUtil.buildFrom;
 import static java.util.Collections.singletonMap;
 
@@ -25,6 +24,6 @@ public class FreemarkerProcessor implements ValueProcessor {
     public Object process(Object value, Message message) throws RegurgitatorException {
         Map<String, Object> valueMap = singletonMap("value", value);
         log.debug("Building value from template value '{}' and value map: {}", templateValue, valueMap);
-        return buildFrom(valueMap, stringify(templateValue));
+        return buildFrom(valueMap, templateValue);
     }
 }
