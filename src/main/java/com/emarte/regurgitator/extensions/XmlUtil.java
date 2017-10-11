@@ -7,7 +7,8 @@ package com.emarte.regurgitator.extensions;
 import com.emarte.regurgitator.core.*;
 import org.w3c.dom.Document;
 
-import javax.xml.parsers.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.ByteArrayInputStream;
 
 import static com.emarte.regurgitator.core.CacheProvider.Cache;

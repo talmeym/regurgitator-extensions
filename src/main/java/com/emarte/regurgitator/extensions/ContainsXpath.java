@@ -11,8 +11,8 @@ import java.util.Map;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
-import static com.emarte.regurgitator.extensions.XmlUtil.getDocument;
 import static com.emarte.regurgitator.extensions.XPathUtil.strip;
+import static com.emarte.regurgitator.extensions.XmlUtil.getDocument;
 
 public class ContainsXpath implements ConditionBehaviour {
     private static final Log log = getLog(ContainsXpath.class);

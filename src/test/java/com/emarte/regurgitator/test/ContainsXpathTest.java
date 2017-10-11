@@ -8,11 +8,13 @@ import com.emarte.regurgitator.core.*;
 import com.emarte.regurgitator.extensions.ContainsXpath;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 
 public class ContainsXpathTest {
     @Test

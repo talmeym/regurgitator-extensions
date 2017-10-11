@@ -4,12 +4,14 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.FileUtil;
+import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.XpathProcessor;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static org.junit.Assert.assertEquals;

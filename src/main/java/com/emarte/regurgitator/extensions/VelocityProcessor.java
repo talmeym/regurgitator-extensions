@@ -9,7 +9,7 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
 import java.io.StringWriter;
-import java.util.*;
+import java.util.Map;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static java.util.Collections.singletonMap;

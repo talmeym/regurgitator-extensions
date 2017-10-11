@@ -10,7 +10,8 @@ import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 
 public class ContainsJsonPathBehaviourTest {
     @Test

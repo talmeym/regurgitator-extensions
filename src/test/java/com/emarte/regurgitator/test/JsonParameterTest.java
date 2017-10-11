@@ -5,8 +5,10 @@
 package com.emarte.regurgitator.test;
 
 import com.emarte.regurgitator.core.*;
-import com.emarte.regurgitator.extensions.*;
-import org.junit.*;
+import com.emarte.regurgitator.extensions.JsonParameter;
+import com.emarte.regurgitator.extensions.JsonPathProcessor;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;

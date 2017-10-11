@@ -5,11 +5,14 @@
 package com.emarte.regurgitator.test;
 
 import com.emarte.regurgitator.core.*;
-import com.emarte.regurgitator.extensions.*;
-import org.junit.*;
+import com.emarte.regurgitator.extensions.XmlParameter;
+import com.emarte.regurgitator.extensions.XpathProcessor;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.*;

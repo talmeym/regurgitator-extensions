@@ -5,7 +5,8 @@
 package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
-import com.jayway.jsonpath.*;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.PathNotFoundException;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;

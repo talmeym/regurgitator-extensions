@@ -4,12 +4,14 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.FileUtil;
+import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.JsonPathProcessor;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
 
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;

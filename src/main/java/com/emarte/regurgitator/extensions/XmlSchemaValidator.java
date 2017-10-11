@@ -5,14 +5,16 @@
 package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
-import org.w3c.dom.ls.*;
+import org.w3c.dom.ls.LSInput;
+import org.w3c.dom.ls.LSResourceResolver;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.*;
 import java.io.*;
 
-import static com.emarte.regurgitator.core.FileUtil.*;
+import static com.emarte.regurgitator.core.FileUtil.checkResource;
+import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;

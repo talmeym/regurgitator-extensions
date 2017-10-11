@@ -4,7 +4,8 @@
  */
 package com.emarte.regurgitator.extensions;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import java.util.*;
 

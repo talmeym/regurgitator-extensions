@@ -4,9 +4,11 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.XmlSchemaValidator;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
