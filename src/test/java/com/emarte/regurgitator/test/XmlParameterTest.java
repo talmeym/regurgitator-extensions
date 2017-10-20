@@ -16,6 +16,8 @@ import java.util.HashMap;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.*;
+import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
+import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static org.junit.Assert.assertEquals;
 
 public class XmlParameterTest {
@@ -23,7 +25,7 @@ public class XmlParameterTest {
 
     @Before
     public void setup() throws IOException {
-        xml = FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/xpath-test.xml"));
+        xml = streamToString(getInputStreamForFile("classpath:/xpath-test.xml"));
     }
 
     @Test

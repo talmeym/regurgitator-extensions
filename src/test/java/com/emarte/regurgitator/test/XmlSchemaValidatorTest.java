@@ -31,7 +31,7 @@ public class XmlSchemaValidatorTest {
         toTest.process("<dog>A String</dog>", new Message(null));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = RegurgitatorException.class)
     public void testMissingSchema() throws RegurgitatorException {
         toTest = new XmlSchemaValidator("classpath:/doesNotExist.xsd");
     }

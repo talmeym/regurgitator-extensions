@@ -15,6 +15,8 @@ import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.*;
+import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
+import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static org.junit.Assert.assertEquals;
 
 public class JsonParameterTest {
@@ -22,7 +24,7 @@ public class JsonParameterTest {
 
     @Before
     public void setup() throws IOException {
-        json = FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/jsonpath-test.json"));
+        json = streamToString(getInputStreamForFile("classpath:/jsonpath-test.json"));
     }
 
     @Test

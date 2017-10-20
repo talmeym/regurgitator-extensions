@@ -4,7 +4,6 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.FileUtil;
 import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.JsonPathProcessor;
 import org.junit.Before;
@@ -13,6 +12,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
+import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +22,7 @@ public class JsonPathProcessorTest {
 
     @Before
     public void setup() throws IOException {
-        json = FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/jsonpath-test.json"));
+        json = streamToString(getInputStreamForFile("classpath:/jsonpath-test.json"));
     }
 
     @Test
@@ -38,7 +39,7 @@ public class JsonPathProcessorTest {
 
     @Test
     public void testLinkedHashMap() throws IOException, RegurgitatorException {
-        json = FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/jsonpath-map-test.json"));
+        json = streamToString(getInputStreamForFile("classpath:/jsonpath-map-test.json"));
         JsonPathProcessor jsonpath = new JsonPathProcessor("$.object");
         assertEquals("{\"something\":\"miles\"}", jsonpath.process(json, null));
     }

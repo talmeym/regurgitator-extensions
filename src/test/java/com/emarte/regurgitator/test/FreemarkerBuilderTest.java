@@ -10,12 +10,14 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
+import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static org.junit.Assert.assertEquals;
 
 public class FreemarkerBuilderTest {
     @Test
     public void testFreemarkerBuilder() throws RegurgitatorException, IOException {
-        FreemarkerBuilder toTest = new FreemarkerBuilder(new ValueSource(null, FileUtil.streamToString(FileUtil.getInputStreamForFile("classpath:/test-template.xml"))), true);
+        FreemarkerBuilder toTest = new FreemarkerBuilder(new ValueSource(null, streamToString(getInputStreamForFile("classpath:/test-template.xml"))), true);
         Message message = new Message(null);
         Parameters parameters = message.getParameters();
         parameters.setValue("name", "Miles");

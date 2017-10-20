@@ -4,7 +4,6 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.FileUtil;
 import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.XpathProcessor;
 import org.junit.Before;
@@ -14,6 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
+import static com.emarte.regurgitator.core.FileUtil.streamToString;
 import static org.junit.Assert.assertEquals;
 
 public class XpathProcessorTest {
@@ -21,7 +21,7 @@ public class XpathProcessorTest {
 
     @Before
     public void setup() throws IOException {
-        xml = FileUtil.streamToString(getInputStreamForFile("classpath:/xpath-test.xml"));
+        xml = streamToString(getInputStreamForFile("classpath:/xpath-test.xml"));
     }
 
     @Test
