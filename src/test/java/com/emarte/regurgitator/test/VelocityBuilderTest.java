@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 public class VelocityBuilderTest {
     @Test
     public void testVelocityBuilder() throws RegurgitatorException, IOException {
-        VelocityBuilder toTest = new VelocityBuilder(new ValueSource(null, streamToString(getInputStreamForFile("classpath:/test-template.xml"))), true);
+        VelocityBuilder toTest = new VelocityBuilder(new ValueSource(null, streamToString(getInputStreamForFile("classpath:/test-template-builder.xml"))), true);
         Message message = new Message(null);
         Parameters parameters = message.getParameters();
         parameters.setValue("name", STRING, "Miles");
