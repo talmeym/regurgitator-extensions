@@ -14,6 +14,7 @@ import java.io.ByteArrayInputStream;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
+import static com.emarte.regurgitator.extensions.XmlSchemaUtil.getSchema;
 
 public class XmlSchemaValidator implements ValueProcessor {
     private static final Log log = getLog(XmlSchemaValidator.class);
@@ -23,7 +24,7 @@ public class XmlSchemaValidator implements ValueProcessor {
 
     public XmlSchemaValidator(String schemaPath) throws RegurgitatorException {
         this.schemaPath = schemaPath;
-        schema = XmlSchemaUtil.getSchema(schemaPath);
+        schema = getSchema(schemaPath);
     }
 
     @Override

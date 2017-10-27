@@ -1,5 +1,10 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.extensions;
 
+import com.emarte.regurgitator.core.Log;
 import com.emarte.regurgitator.core.RegurgitatorException;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
@@ -7,7 +12,6 @@ import org.w3c.dom.ls.LSResourceResolver;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
 import java.io.*;
 
 import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
@@ -15,6 +19,7 @@ import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 import static javax.xml.validation.SchemaFactory.newInstance;
 
 class XmlSchemaUtil {
+    private static final Log log = Log.getLog(XmlSchemaUtil.class);
     private static final SchemaFactory factory = newInstance(W3C_XML_SCHEMA_NS_URI);
 
     static {
@@ -23,9 +28,11 @@ class XmlSchemaUtil {
                 ByteStreamLSInput input = new ByteStreamLSInput();
 
                 try {
-                    input.setByteStream(getInputStreamForFile(systemId));
+                    String resolvePath = "classpath:/" + systemId.substring(systemId.lastIndexOf("/") + 1);
+                    input.setByteStream(getInputStreamForFile(resolvePath));
                 } catch (IOException e) {
-                    // TODO do something
+                    log.error("Error resolving resource for schema validation", e);
+                    throw new IllegalStateException("Error resolving resource for schema validation", e);
                 }
 
                 return input;

@@ -1,19 +1,37 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.extensions;
 
-import com.emarte.regurgitator.core.RegurgitatorException;
+import com.emarte.regurgitator.core.*;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Map;
+import java.util.Properties;
+
+import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 
 class VelocityUtil {
+    private static final Log log = Log.getLog(VelocityUtil.class);
     private static Exception initError;
 
     static {
         try {
-            Velocity.init();
+            Properties properties = new Properties();
+
+            try {
+                properties.load(getInputStreamForFile("classpath:/velocity.properties"));
+            } catch(IOException ioe) {
+                log.debug("Error finding velocity.properties '{}', continuing without properties", ioe.getMessage());
+            }
+
+            Velocity.init(properties);
         } catch (Exception e) {
+            log.error("Error initialising velocity", e);
             initError = e;
         }
     }
