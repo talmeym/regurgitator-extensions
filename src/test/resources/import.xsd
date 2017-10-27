@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:rgt="http://test.regurgitator.emarte.com"
+           targetNamespace="http://test.regurgitator.emarte.com" elementFormDefault="qualified">
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Miles"/>
+            <xs:enumeration value="Dave"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

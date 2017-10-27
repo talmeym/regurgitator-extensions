@@ -1,0 +1,6 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:rgt="http://test.regurgitator.emarte.com"
+           targetNamespace="http://core.regurgitator.emarte.com" elementFormDefault="qualified">
+    <xs:import schemaLocation="cantfind.xsd" namespace="http://test.regurgitator.emarte.com"/>
+    <xs:element name="me" type="rgt:name"/>
+</xs:schema>
