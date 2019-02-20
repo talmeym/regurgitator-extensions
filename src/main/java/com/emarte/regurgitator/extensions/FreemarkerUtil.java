@@ -16,7 +16,7 @@ import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 
 class FreemarkerUtil {
     private static final Log log = Log.getLog(FreemarkerUtil.class);
-    private static final Configuration CONFIGURATION = new Configuration();
+    private static final Configuration CONFIGURATION = new Configuration(Configuration.VERSION_2_3_23);
     private static Exception initError;
 
     static {
@@ -24,9 +24,11 @@ class FreemarkerUtil {
             Properties properties = new Properties();
 
             try {
+                log.debug("Loading freemarker properties");
                 properties.load(getInputStreamForFile("classpath:/freemarker.properties"));
+                log.debug("Loaded {} properties", properties.size());
             } catch(IOException ioe) {
-                log.debug("Error finding freemarker.properties '{}', continuing without properties", ioe.getMessage());
+                log.debug("Could not find freemarker.properties '{}', continuing without properties", ioe.getMessage());
             }
 
             CONFIGURATION.setSettings(properties);

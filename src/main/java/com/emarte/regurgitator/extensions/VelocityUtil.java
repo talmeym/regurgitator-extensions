@@ -24,9 +24,11 @@ class VelocityUtil {
             Properties properties = new Properties();
 
             try {
+                log.debug("Loading velocity properties");
                 properties.load(getInputStreamForFile("classpath:/velocity.properties"));
+                log.debug("Loaded {} properties", properties.size());
             } catch(IOException ioe) {
-                log.debug("Error finding velocity.properties '{}', continuing without properties", ioe.getMessage());
+                log.debug("Could not find velocity.properties '{}', continuing without properties", ioe.getMessage());
             }
 
             Velocity.init(properties);
