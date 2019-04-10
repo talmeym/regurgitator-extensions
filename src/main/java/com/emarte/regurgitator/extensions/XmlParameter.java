@@ -6,6 +6,8 @@ package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
 
+import java.util.List;
+
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class XmlParameter extends ParameterExtractor {
@@ -13,8 +15,8 @@ public class XmlParameter extends ParameterExtractor {
     private final ValueSource valueSource;
     private final XpathProcessor xpathProcessor;
 
-    public XmlParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, XpathProcessor xpathProcessor, ValueProcessor processor) {
-        super(id, prototype, context, processor);
+    public XmlParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, XpathProcessor xpathProcessor, List<ValueProcessor> processors) {
+        super(id, prototype, context, processors);
         this.valueSource = valueSource;
         this.xpathProcessor = xpathProcessor;
     }

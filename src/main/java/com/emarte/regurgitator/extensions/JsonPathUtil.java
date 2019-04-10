@@ -6,7 +6,10 @@ package com.emarte.regurgitator.extensions;
 
 import net.minidev.json.JSONObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 import static net.minidev.json.JSONObject.toJSONString;
 

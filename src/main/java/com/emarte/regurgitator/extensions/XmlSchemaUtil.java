@@ -12,7 +12,9 @@ import org.w3c.dom.ls.LSResourceResolver;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
 
 import static com.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;

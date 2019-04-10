@@ -4,7 +4,8 @@
  */
 package com.emarte.regurgitator.extensions;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.Log;
+import com.emarte.regurgitator.core.RegurgitatorException;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 

@@ -4,7 +4,8 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.FreemarkerProcessor;
 import org.junit.Test;
 

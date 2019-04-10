@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
@@ -29,8 +30,8 @@ public class JsonParameterTest {
 
     @Test
     public void testJsonDocument() throws RegurgitatorException {
-        JsonParameter toTest1 = new JsonParameter("toTest1", new ParameterPrototype("names", LIST_OF_STRING, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].name"), null);
-        JsonParameter toTest2 = new JsonParameter("toTest2", new ParameterPrototype("ages", LIST_OF_NUMBER, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].age"), null);
+        JsonParameter toTest1 = new JsonParameter("toTest1", new ParameterPrototype("names", LIST_OF_STRING, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].name"), new ArrayList<ValueProcessor>());
+        JsonParameter toTest2 = new JsonParameter("toTest2", new ParameterPrototype("ages", LIST_OF_NUMBER, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].age"), new ArrayList<ValueProcessor>());
 
         Message message = new Message(null);
         message.getContext("test").setValue("input", STRING, json);

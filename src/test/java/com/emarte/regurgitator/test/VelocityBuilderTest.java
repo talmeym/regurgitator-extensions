@@ -4,7 +4,10 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.Parameters;
+import com.emarte.regurgitator.core.RegurgitatorException;
+import com.emarte.regurgitator.core.ValueSource;
 import com.emarte.regurgitator.extensions.VelocityBuilder;
 import org.junit.Test;
 

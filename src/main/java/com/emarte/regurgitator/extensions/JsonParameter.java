@@ -6,6 +6,8 @@ package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
 
+import java.util.List;
+
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public class JsonParameter extends ParameterExtractor {
@@ -13,8 +15,8 @@ public class JsonParameter extends ParameterExtractor {
     private final ValueSource valueSource;
     private final JsonPathProcessor jsonPathProcessor;
 
-    public JsonParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, JsonPathProcessor jsonPathProcessor, ValueProcessor processor) {
-        super(id, prototype, context, processor);
+    public JsonParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, JsonPathProcessor jsonPathProcessor, List<ValueProcessor> processors) {
+        super(id, prototype, context, processors);
         this.jsonPathProcessor = jsonPathProcessor;
         this.valueSource = valueSource;
     }

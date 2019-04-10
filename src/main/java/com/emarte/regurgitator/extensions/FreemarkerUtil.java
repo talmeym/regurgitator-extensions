@@ -6,9 +6,11 @@ package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.Log;
 import com.emarte.regurgitator.core.RegurgitatorException;
-import freemarker.template.*;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Map;
 import java.util.Properties;
 

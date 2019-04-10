@@ -4,7 +4,10 @@
  */
 package com.emarte.regurgitator.extensions;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.Log;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.RegurgitatorException;
+import com.emarte.regurgitator.core.ValueProcessor;
 import com.jayway.jsonpath.JsonPath;
 
 import static com.emarte.regurgitator.core.Log.getLog;

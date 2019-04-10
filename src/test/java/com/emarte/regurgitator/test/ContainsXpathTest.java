@@ -4,7 +4,10 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.Parameter;
+import com.emarte.regurgitator.core.ParameterPrototype;
+import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.ContainsXpath;
 import org.junit.Test;
 

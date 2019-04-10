@@ -6,7 +6,10 @@ package com.emarte.regurgitator.extensions;
 
 import com.emarte.regurgitator.core.*;
 
-import javax.xml.xpath.*;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import java.util.Map;
 
 import static com.emarte.regurgitator.core.Log.getLog;

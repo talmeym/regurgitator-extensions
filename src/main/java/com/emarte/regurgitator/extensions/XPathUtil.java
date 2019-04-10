@@ -7,7 +7,9 @@ package com.emarte.regurgitator.extensions;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @SuppressWarnings("unchecked")
 class XPathUtil {
