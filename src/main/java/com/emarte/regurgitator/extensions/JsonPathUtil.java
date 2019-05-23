@@ -17,21 +17,17 @@ class JsonPathUtil {
     @SuppressWarnings("unchecked")
     static Object strip(Object extract) {
         if (extract instanceof Collection) {
-            if (((Collection) extract).size() > 0) {
-                List<Object> objs = new ArrayList<Object>();
+            List<Object> objs = new ArrayList<Object>();
 
-                for (Object obj : (Collection) extract) {
-                    if(obj instanceof JSONObject) {
-                        objs.add(((JSONObject) obj).toJSONString());
-                    } else {
-                        objs.add(obj);
-                    }
+            for (Object obj : (Collection) extract) {
+                if(obj instanceof JSONObject) {
+                    objs.add(((JSONObject) obj).toJSONString());
+                } else {
+                    objs.add(obj);
                 }
-
-                return objs;
             }
 
-            return null;
+            return objs;
         }
 
         if(extract instanceof JSONObject) {
