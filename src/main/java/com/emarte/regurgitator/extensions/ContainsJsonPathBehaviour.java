@@ -16,7 +16,7 @@ public class ContainsJsonPathBehaviour implements ConditionBehaviour {
     private static final Log log = getLog(ContainsJsonPathBehaviour.class);
 
     @Override
-    public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) throws RegurgitatorException {
+    public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {
         boolean contains = false;
 
         if(parameter != null) {
