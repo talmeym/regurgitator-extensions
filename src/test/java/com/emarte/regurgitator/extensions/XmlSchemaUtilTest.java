@@ -25,7 +25,7 @@ public class XmlSchemaUtilTest {
     }
 
     @Test(expected = RegurgitatorException.class)
-    public void testFailedImport() throws RegurgitatorException, IOException, SAXException {
+    public void testFailedImport() throws RegurgitatorException {
         XmlSchemaUtil.getSchema("classpath:/xml-schema-failed-import-test.xsd");
     }
 }

@@ -50,7 +50,6 @@ class XmlSchemaUtil {
         }
     }
 
-    @SuppressWarnings("ThrowableInstanceNeverThrown")
     private static class ByteStreamLSInput implements LSInput {
         private final UnsupportedOperationException uoe = new UnsupportedOperationException("Can only use byte stream");
         private InputStream byteStream;
