@@ -22,7 +22,7 @@ class XPathUtil {
             Collection<Node> nodeCollection = (Collection<Node>) extract;
 
             if (nodeCollection.size() > 0) {
-                List<Object> objs = new ArrayList<Object>();
+                List<Object> objs = new ArrayList<>();
 
                 for (Node node : nodeCollection) {
                     if (node.getTextContent() != null && node.getTextContent().length() > 0) {
@@ -38,7 +38,7 @@ class XPathUtil {
 
         if(extract instanceof NodeList) {
             NodeList nodeList = (NodeList) extract;
-            List<Object> list = new ArrayList<Object>(nodeList.getLength());
+            List<Object> list = new ArrayList<>(nodeList.getLength());
 
             for(int i = 0; i < nodeList.getLength(); i++) {
                 list.add(nodeList.item(i).getTextContent());

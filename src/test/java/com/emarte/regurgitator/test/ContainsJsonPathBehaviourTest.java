@@ -7,18 +7,17 @@ package com.emarte.regurgitator.test;
 import com.emarte.regurgitator.core.Message;
 import com.emarte.regurgitator.core.Parameter;
 import com.emarte.regurgitator.core.ParameterPrototype;
-import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.ContainsJsonPathBehaviour;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ContainsJsonPathBehaviourTest {
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testThis() {
         ContainsJsonPathBehaviour toTest = new ContainsJsonPathBehaviour();
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);
         Parameter parameter = new Parameter(prototype, "{\"something\":{\"something\":\"this\"}}");

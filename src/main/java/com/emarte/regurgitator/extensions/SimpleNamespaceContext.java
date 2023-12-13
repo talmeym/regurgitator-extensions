@@ -11,8 +11,8 @@ import java.util.*;
 import static java.util.Collections.EMPTY_SET;
 
 class SimpleNamespaceContext implements NamespaceContext {
-    private final Map<String, String> urisByPrefix = new HashMap<String, String>();
-    private final Map<String, Set<String>> prefixesByURI = new HashMap<String, Set<String>>();
+    private final Map<String, String> urisByPrefix = new HashMap<>();
+    private final Map<String, Set<String>> prefixesByURI = new HashMap<>();
 
     SimpleNamespaceContext(Map<String, String> namespaces) {
         addNamespace(XMLConstants.XML_NS_PREFIX, XMLConstants.XML_NS_URI);
@@ -28,7 +28,7 @@ class SimpleNamespaceContext implements NamespaceContext {
         if (prefixesByURI.containsKey(namespaceURI)) {
             (prefixesByURI.get(namespaceURI)).add(prefix);
         } else {
-            Set<String> set = new HashSet<String>();
+            Set<String> set = new HashSet<>();
             set.add(prefix);
             prefixesByURI.put(namespaceURI, set);
         }
@@ -38,26 +38,19 @@ class SimpleNamespaceContext implements NamespaceContext {
     public String getNamespaceURI(String prefix) {
         if (prefix == null)
             throw new IllegalArgumentException("prefix cannot be null");
-        if (urisByPrefix.containsKey(prefix))
-            return urisByPrefix.get(prefix);
-        else
-            return XMLConstants.NULL_NS_URI;
+
+        return urisByPrefix.getOrDefault(prefix, XMLConstants.NULL_NS_URI);
     }
 
     @Override
     public String getPrefix(String namespaceURI) {
-        return (String) getPrefixes(namespaceURI).next();
+        return getPrefixes(namespaceURI).next();
     }
 
     @Override
-    public Iterator getPrefixes(String namespaceURI) {
+    public Iterator<String> getPrefixes(String namespaceURI) {
         if (namespaceURI == null)
             throw new IllegalArgumentException("namespaceURI cannot be null");
-        if (prefixesByURI.containsKey(namespaceURI)) {
-            return prefixesByURI.get(namespaceURI).iterator();
-        } else {
-            return EMPTY_SET.iterator();
-        }
+        return (Iterator<String>) prefixesByURI.getOrDefault(namespaceURI, EMPTY_SET).iterator();
     }
-
 }

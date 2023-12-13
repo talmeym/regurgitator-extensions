@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class VelocityUtilTest {
     @Test
     public void testThis() throws RegurgitatorException {
-        HashMap<String, Object> map = new HashMap<String, Object>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put("name", "Miles");
         assertEquals("Hello Miles", VelocityUtil.buildFrom(map, "Hello ${name}"));
     }

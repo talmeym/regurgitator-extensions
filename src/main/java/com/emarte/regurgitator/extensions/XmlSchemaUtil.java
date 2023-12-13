@@ -7,7 +7,6 @@ package com.emarte.regurgitator.extensions;
 import com.emarte.regurgitator.core.Log;
 import com.emarte.regurgitator.core.RegurgitatorException;
 import org.w3c.dom.ls.LSInput;
-import org.w3c.dom.ls.LSResourceResolver;
 
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -25,20 +24,18 @@ class XmlSchemaUtil {
     private static final SchemaFactory factory = newInstance(W3C_XML_SCHEMA_NS_URI);
 
     static {
-        factory.setResourceResolver(new LSResourceResolver() {
-            public LSInput resolveResource(String type, String namespaceURI, String publicId, String systemId, String baseURI) {
-                ByteStreamLSInput input = new ByteStreamLSInput();
+        factory.setResourceResolver((type, namespaceURI, publicId, systemId, baseURI) -> {
+            ByteStreamLSInput input = new ByteStreamLSInput();
 
-                try {
-                    String resolvePath = "classpath:/" + systemId.substring(systemId.lastIndexOf("/") + 1);
-                    input.setByteStream(getInputStreamForFile(resolvePath));
-                } catch (IOException e) {
-                    log.error("Error resolving resource for schema validation", e);
-                    throw new IllegalStateException("Error resolving resource for schema validation", e);
-                }
-
-                return input;
+            try {
+                String resolvePath = "classpath:/" + systemId.substring(systemId.lastIndexOf("/") + 1);
+                input.setByteStream(getInputStreamForFile(resolvePath));
+            } catch (IOException e) {
+                log.error("Error resolving resource for schema validation", e);
+                throw new IllegalStateException("Error resolving resource for schema validation", e);
             }
+
+            return input;
         });
     }
 

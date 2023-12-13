@@ -16,8 +16,8 @@ import java.util.Map;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ContainsXpathTest {
     @Test
@@ -46,7 +46,7 @@ public class ContainsXpathTest {
 
     @Test
     public void testNamespaced_nsDefined() throws RegurgitatorException {
-        Map<String, String> namespaceUris = new HashMap<String, String>();
+        Map<String, String> namespaceUris = new HashMap<>();
         namespaceUris.put("something", "http://something.com");
         ContainsXpath toTest = new ContainsXpath(namespaceUris);
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);

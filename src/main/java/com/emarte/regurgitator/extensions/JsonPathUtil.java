@@ -17,9 +17,9 @@ class JsonPathUtil {
     @SuppressWarnings("unchecked")
     static Object strip(Object extract) {
         if (extract instanceof Collection) {
-            List<Object> objs = new ArrayList<Object>();
+            List<Object> objs = new ArrayList<>();
 
-            for (Object obj : (Collection) extract) {
+            for (Object obj : (Collection<Object>) extract) {
                 if(obj instanceof JSONObject) {
                     objs.add(((JSONObject) obj).toJSONString());
                 } else {
@@ -35,7 +35,7 @@ class JsonPathUtil {
         }
 
         if(extract instanceof LinkedHashMap) {
-            return toJSONString((LinkedHashMap) extract);
+            return toJSONString((LinkedHashMap<String, ?>) extract);
         }
 
         return extract;
