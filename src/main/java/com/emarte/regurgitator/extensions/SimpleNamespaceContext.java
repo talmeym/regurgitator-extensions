@@ -8,8 +8,6 @@ import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import java.util.*;
 
-import static java.util.Collections.EMPTY_SET;
-
 class SimpleNamespaceContext implements NamespaceContext {
     private final Map<String, String> urisByPrefix = new HashMap<>();
     private final Map<String, Set<String>> prefixesByURI = new HashMap<>();
@@ -51,6 +49,6 @@ class SimpleNamespaceContext implements NamespaceContext {
     public Iterator<String> getPrefixes(String namespaceURI) {
         if (namespaceURI == null)
             throw new IllegalArgumentException("namespaceURI cannot be null");
-        return (Iterator<String>) prefixesByURI.getOrDefault(namespaceURI, EMPTY_SET).iterator();
+        return prefixesByURI.getOrDefault(namespaceURI, new HashSet<>()).iterator();
     }
 }
