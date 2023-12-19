@@ -4,7 +4,10 @@
  */
 package com.emarte.regurgitator.extensions;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.ConditionBehaviour;
+import com.emarte.regurgitator.core.Log;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.Parameter;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
 
