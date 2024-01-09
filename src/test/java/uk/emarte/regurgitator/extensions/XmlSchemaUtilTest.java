@@ -20,7 +20,7 @@ public class XmlSchemaUtilTest {
         Schema schema = XmlSchemaUtil.getSchema("classpath:/xml-schema-import-test.xsd");
 
         Validator validator = schema.newValidator();
-        String xml = "<me xmlns=\"http://core.regurgitator.emarte.com\">Miles</me>";
+        String xml = "<me xmlns=\"http://core.regurgitator.emarte.uk\">Miles</me>";
         validator.validate(new StreamSource(new ByteArrayInputStream(xml.getBytes())));
     }
 
