@@ -1,5 +1,5 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://test.regurgitator.emarte.com" elementFormDefault="qualified">
+           targetNamespace="http://test.regurgitator.emarte.uk" elementFormDefault="qualified">
     <xs:simpleType name="name">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Miles"/>
