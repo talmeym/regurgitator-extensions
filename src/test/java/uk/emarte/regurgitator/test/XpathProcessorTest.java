@@ -4,17 +4,17 @@
  */
 package uk.emarte.regurgitator.test;
 
-import uk.emarte.regurgitator.core.RegurgitatorException;
-import uk.emarte.regurgitator.extensions.XpathProcessor;
 import org.junit.Before;
 import org.junit.Test;
+import uk.emarte.regurgitator.core.RegurgitatorException;
+import uk.emarte.regurgitator.extensions.XpathProcessor;
 
 import java.io.IOException;
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static uk.emarte.regurgitator.core.FileUtil.streamToString;
-import static org.junit.Assert.assertEquals;
 
 public class XpathProcessorTest {
     private String xml;

@@ -4,10 +4,10 @@
  */
 package uk.emarte.regurgitator.extensions;
 
-import uk.emarte.regurgitator.core.Log;
-import uk.emarte.regurgitator.core.RegurgitatorException;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
+import uk.emarte.regurgitator.core.Log;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import java.io.IOException;
 import java.io.StringWriter;

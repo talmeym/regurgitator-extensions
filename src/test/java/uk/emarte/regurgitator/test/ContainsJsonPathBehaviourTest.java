@@ -4,17 +4,17 @@
  */
 package uk.emarte.regurgitator.test;
 
+import org.junit.Test;
 import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.Parameter;
 import uk.emarte.regurgitator.core.ParameterPrototype;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.ContainsJsonPathBehaviour;
-import org.junit.Test;
 
-import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
-import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
+import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
+import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 
 public class ContainsJsonPathBehaviourTest {
     @Test

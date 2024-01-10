@@ -4,10 +4,10 @@
  */
 package uk.emarte.regurgitator.extensions;
 
-import uk.emarte.regurgitator.core.Log;
-import uk.emarte.regurgitator.core.RegurgitatorException;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import uk.emarte.regurgitator.core.Log;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import java.io.IOException;
 import java.io.StringWriter;

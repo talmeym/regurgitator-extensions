@@ -11,8 +11,8 @@ import uk.emarte.regurgitator.core.ValueProcessor;
 
 import java.util.Map;
 
-import static uk.emarte.regurgitator.core.Log.getLog;
 import static java.util.Collections.singletonMap;
+import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.extensions.VelocityUtil.buildFrom;
 
 public class VelocityProcessor implements ValueProcessor {

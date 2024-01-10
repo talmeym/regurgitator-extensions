@@ -4,18 +4,18 @@
  */
 package uk.emarte.regurgitator.test;
 
-import uk.emarte.regurgitator.core.RegurgitatorException;
-import uk.emarte.regurgitator.extensions.JsonPathProcessor;
 import org.junit.Before;
 import org.junit.Test;
+import uk.emarte.regurgitator.core.RegurgitatorException;
+import uk.emarte.regurgitator.extensions.JsonPathProcessor;
 
 import java.io.IOException;
 import java.util.Arrays;
 
-import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
-import static uk.emarte.regurgitator.core.FileUtil.streamToString;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
+import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
+import static uk.emarte.regurgitator.core.FileUtil.streamToString;
 
 public class JsonPathProcessorTest {
     private String json;

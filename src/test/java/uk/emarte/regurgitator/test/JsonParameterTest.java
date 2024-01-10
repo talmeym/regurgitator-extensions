@@ -4,21 +4,21 @@
  */
 package uk.emarte.regurgitator.test;
 
+import org.junit.Before;
+import org.junit.Test;
 import uk.emarte.regurgitator.core.*;
 import uk.emarte.regurgitator.extensions.JsonParameter;
 import uk.emarte.regurgitator.extensions.JsonPathProcessor;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static uk.emarte.regurgitator.core.CoreTypes.*;
 import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static uk.emarte.regurgitator.core.FileUtil.streamToString;
-import static org.junit.Assert.assertEquals;
 
 public class JsonParameterTest {
     private String json;

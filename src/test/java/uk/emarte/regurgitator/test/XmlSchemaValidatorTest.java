@@ -4,11 +4,11 @@
  */
 package uk.emarte.regurgitator.test;
 
+import org.junit.Before;
+import org.junit.Test;
 import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.XmlSchemaValidator;
-import org.junit.Before;
-import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 

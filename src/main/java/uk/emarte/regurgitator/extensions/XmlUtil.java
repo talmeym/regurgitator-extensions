@@ -4,10 +4,10 @@
  */
 package uk.emarte.regurgitator.extensions;
 
+import org.w3c.dom.Document;
 import uk.emarte.regurgitator.core.Caching;
 import uk.emarte.regurgitator.core.Log;
 import uk.emarte.regurgitator.core.RegurgitatorException;
-import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

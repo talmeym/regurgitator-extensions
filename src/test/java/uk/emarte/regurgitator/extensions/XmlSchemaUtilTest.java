@@ -4,9 +4,9 @@
  */
 package uk.emarte.regurgitator.extensions;
 
-import uk.emarte.regurgitator.core.RegurgitatorException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;

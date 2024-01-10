@@ -4,10 +4,10 @@
  */
 package uk.emarte.regurgitator.extensions;
 
-import uk.emarte.regurgitator.core.Log;
-import uk.emarte.regurgitator.core.RegurgitatorException;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
+import uk.emarte.regurgitator.core.Log;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -16,9 +16,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 
-import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI;
 import static javax.xml.validation.SchemaFactory.newInstance;
+import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 
 class XmlSchemaUtil {
     private static final Log log = Log.getLog(XmlSchemaUtil.class);

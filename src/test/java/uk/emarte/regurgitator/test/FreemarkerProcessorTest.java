@@ -4,17 +4,17 @@
  */
 package uk.emarte.regurgitator.test;
 
+import org.junit.Test;
 import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.FreemarkerProcessor;
-import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static uk.emarte.regurgitator.core.FileUtil.streamToString;
 import static uk.emarte.regurgitator.core.StringType.stringify;
-import static org.junit.Assert.assertEquals;
 
 public class FreemarkerProcessorTest {
     @Test

@@ -4,10 +4,10 @@
  */
 package uk.emarte.regurgitator.extensions;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.core.ValueProcessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

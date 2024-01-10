@@ -11,9 +11,9 @@ import uk.emarte.regurgitator.core.ValueProcessor;
 
 import java.util.Map;
 
+import static java.util.Collections.singletonMap;
 import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.extensions.FreemarkerUtil.buildFrom;
-import static java.util.Collections.singletonMap;
 
 public class FreemarkerProcessor implements ValueProcessor {
     private static final Log log = getLog(FreemarkerProcessor.class);

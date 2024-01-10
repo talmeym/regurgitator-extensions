@@ -4,13 +4,16 @@
  */
 package uk.emarte.regurgitator.extensions;
 
-import uk.emarte.regurgitator.core.*;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
+import uk.emarte.regurgitator.core.ConditionBehaviour;
+import uk.emarte.regurgitator.core.Log;
+import uk.emarte.regurgitator.core.Message;
+import uk.emarte.regurgitator.core.Parameter;
 
+import static com.jayway.jsonpath.JsonPath.compile;
 import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.core.StringType.stringify;
-import static com.jayway.jsonpath.JsonPath.compile;
 
 public class ContainsJsonPathBehaviour implements ConditionBehaviour {
     private static final Log log = getLog(ContainsJsonPathBehaviour.class);

@@ -4,16 +4,16 @@
  */
 package uk.emarte.regurgitator.extensions;
 
+import com.jayway.jsonpath.JsonPath;
 import uk.emarte.regurgitator.core.Log;
 import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.core.ValueProcessor;
-import com.jayway.jsonpath.JsonPath;
 
+import static com.jayway.jsonpath.JsonPath.compile;
 import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.core.StringType.stringify;
 import static uk.emarte.regurgitator.extensions.JsonPathUtil.strip;
-import static com.jayway.jsonpath.JsonPath.compile;
 
 public class JsonPathProcessor implements ValueProcessor {
     private static final Log log = getLog(JsonPathProcessor.class);

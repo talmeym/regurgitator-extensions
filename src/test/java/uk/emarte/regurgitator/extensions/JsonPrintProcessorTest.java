@@ -4,8 +4,8 @@
  */
 package uk.emarte.regurgitator.extensions;
 
-import uk.emarte.regurgitator.core.RegurgitatorException;
 import org.junit.Test;
+import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import java.util.List;
 import java.util.Map;
