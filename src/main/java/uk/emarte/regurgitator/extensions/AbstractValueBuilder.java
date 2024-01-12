@@ -20,7 +20,7 @@ abstract class AbstractValueBuilder implements ValueBuilder {
     }
 
     private Map<String, Object> getAllContextValues(Message message) {
-        Map<String, Object> values = new HashMap<String, Object>();
+        Map<String, Object> values = new HashMap<>();
 
         Object sessionId = message.hasSession() ? message.getSession().getId() : null;
 
@@ -39,7 +39,7 @@ abstract class AbstractValueBuilder implements ValueBuilder {
     }
 
     private Map<String, Object> getContextValues(Parameters context) {
-        Map<String, Object> values = new HashMap<String, Object>();
+        Map<String, Object> values = new HashMap<>();
 
         for (Object id: context.ids()) {
             values.put(makeTemplateSafe(stringify(id)), context.getValue(id));

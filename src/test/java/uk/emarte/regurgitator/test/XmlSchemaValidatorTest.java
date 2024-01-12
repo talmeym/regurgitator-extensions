@@ -10,8 +10,7 @@ import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.XmlSchemaValidator;
 
-import static junit.framework.Assert.assertEquals;
-
+import static org.junit.Assert.assertEquals;
 public class XmlSchemaValidatorTest {
     private XmlSchemaValidator toTest;
 
