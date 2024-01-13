@@ -15,12 +15,10 @@ regurgitator-extensions provides the following steps:
 regurgitator-extensions provides the following constructs:
 #### value builders
 - ``freemarker-builder`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#freemarker-builder), [json](https://talmeym.github.io/regurgitator-extensions-json#freemarker-builder), [yml](https://talmeym.github.io/regurgitator-extensions-yml#freemarker-builder)) build a parameter value using a freemarker template
-- ``velocity-builder`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#velocity-builder), [json](https://talmeym.github.io/regurgitator-extensions-json#velocity-builder), [yml](https://talmeym.github.io/regurgitator-extensions-yml#velocity-builder)) build a parameter value using a velocity template
 
 #### value processors
 - ``json-path-processor`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#json-path-processor), [json](https://talmeym.github.io/regurgitator-extensions-json#json-path-processor), [yml](https://talmeym.github.io/regurgitator-extensions-yml#json-path-processor)) process a parameter value, extracting from it using json-path
 - ``xpath-processor`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#xpath-processor), [json](https://talmeym.github.io/regurgitator-extensions-json#xpath-processor), [yml](https://talmeym.github.io/regurgitator-extensions-yml#xpath-processor)) process a parameter value, extracting from it using xpath
 - ``freemarker-processor`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#freemarker-processor), [json](https://talmeym.github.io/regurgitator-extensions-json#freemarker-processor), [yml](https://talmeym.github.io/regurgitator-extensions-yml#freemarker-processor)) process a parameter value, formatting the value using a freemarker template
-- ``velocity-processor`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#velocity-processor), [json](https://talmeym.github.io/regurgitator-extensions-json#velocity-processor), [yml](https://talmeym.github.io/regurgitator-extensions-yml#velocity-processor)) process a parameter value, formatting the value using a velocity template
 - ``xml-schema-validator`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#xml-schema-validator), [json](https://talmeym.github.io/regurgitator-extensions-json#xml-schema-validator), [yml](https://talmeym.github.io/regurgitator-extensions-yml#xml-schema-validator)) process a parameter value, validating it against an xml schema
 

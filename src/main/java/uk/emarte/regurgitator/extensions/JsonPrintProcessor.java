@@ -20,7 +20,7 @@ public class JsonPrintProcessor implements ValueProcessor {
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             objectMapper.writer().writeValue(outputStream, value);
-            return new String(outputStream.toByteArray());
+            return outputStream.toString();
         } catch (IOException e) {
             throw new RegurgitatorException("Error writing value out as Json", e);
         }

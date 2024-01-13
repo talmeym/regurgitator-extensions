@@ -25,7 +25,7 @@ public class JsonPrintProcessorTest {
     @Test
     public void testListOfObjectsWithMixedType() throws RegurgitatorException {
         JsonPrintProcessor processor = new JsonPrintProcessor();
-        List list = asList(person("Dave", 21), person("Wendy", 18), person("Harold", 55));
+        List<Person> list = asList(person("Dave", 21), person("Wendy", 18), person("Harold", 55));
         String json = (String) processor.process(list, null);
         assertEquals("[{\"name\":\"Dave\",\"age\":21},{\"name\":\"Wendy\",\"age\":18},{\"name\":\"Harold\",\"age\":55}]", json);
     }
@@ -33,7 +33,7 @@ public class JsonPrintProcessorTest {
     @Test
     public void testObjectWithListOfObjectsWithMixedTypes() throws RegurgitatorException {
         JsonPrintProcessor processor = new JsonPrintProcessor();
-        Map map = singletonMap("people", asList(person("Dave", 21), person("Wendy", 18), person("Harold", 55)));
+        Map<String, List<Person>> map = singletonMap("people", asList(person("Dave", 21), person("Wendy", 18), person("Harold", 55)));
         String json = (String) processor.process(map, null);
         assertEquals("{\"people\":[{\"name\":\"Dave\",\"age\":21},{\"name\":\"Wendy\",\"age\":18},{\"name\":\"Harold\",\"age\":55}]}", json);
     }
@@ -42,7 +42,7 @@ public class JsonPrintProcessorTest {
         return new Person(name, age);
     }
 
-    private class Person {
+    private static class Person {
         public final String name;
         public final int age;
 
