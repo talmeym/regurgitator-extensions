@@ -4,6 +4,7 @@
  */
 package uk.emarte.regurgitator.extensions;
 
+import org.xml.sax.SAXException;
 import uk.emarte.regurgitator.core.Log;
 import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
@@ -14,6 +15,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.Validator;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.core.StringType.stringify;
@@ -36,11 +38,11 @@ public class XmlSchemaValidator implements ValueProcessor {
             Validator validator = schema.newValidator();
             Source source = new StreamSource(new ByteArrayInputStream(stringify(value).getBytes()));
             validator.validate(source);
-            log.debug("Value successfully validated against schema '{}'", schemaPath);
+            log.debug("Value successfully validated against xml schema '{}'", schemaPath);
             return value;
-        } catch (Exception e) {
-            log.warn("Value did not validate against schema '{}'", schemaPath);
-            throw new RegurgitatorException("Value did not validate against schema + '" + schemaPath + "'", e);
+        } catch (SAXException | IOException e) {
+            log.warn("Value did not validate against xml schema '{}'", schemaPath);
+            throw new RegurgitatorException("Value did not validate against xml schema + '" + schemaPath + "'", e);
         }
     }
 }

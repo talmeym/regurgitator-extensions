@@ -17,11 +17,11 @@ import static uk.emarte.regurgitator.core.StringType.stringify;
 import static uk.emarte.regurgitator.extensions.XPathUtil.strip;
 import static uk.emarte.regurgitator.extensions.XmlUtil.getDocument;
 
-public class ContainsXpath implements ConditionBehaviour {
-    private static final Log log = getLog(ContainsXpath.class);
+public class ContainsXpathBehaviour implements ConditionBehaviour {
+    private static final Log log = getLog(ContainsXpathBehaviour.class);
     private final Map<String, String> namespaceUris;
 
-    public ContainsXpath(Map<String, String> namespaceUris) {
+    public ContainsXpathBehaviour(Map<String, String> namespaceUris) {
         this.namespaceUris = namespaceUris;
     }
 

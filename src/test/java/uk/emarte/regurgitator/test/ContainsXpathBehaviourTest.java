@@ -9,7 +9,7 @@ import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.Parameter;
 import uk.emarte.regurgitator.core.ParameterPrototype;
 import uk.emarte.regurgitator.core.RegurgitatorException;
-import uk.emarte.regurgitator.extensions.ContainsXpath;
+import uk.emarte.regurgitator.extensions.ContainsXpathBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,10 +19,10 @@ import static org.junit.Assert.assertTrue;
 import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 
-public class ContainsXpathTest {
+public class ContainsXpathBehaviourTest {
     @Test
     public void testBehaviour() throws RegurgitatorException {
-        ContainsXpath toTest = new ContainsXpath(null);
+        ContainsXpathBehaviour toTest = new ContainsXpathBehaviour(null);
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);
         Parameter parameter = new Parameter(prototype, "<something><something>this</something></something>");
         assertTrue(toTest.evaluate(parameter, new Message(null), "/something/something", true));
@@ -35,7 +35,7 @@ public class ContainsXpathTest {
 
     @Test
     public void testNamespaced_noneDefined() throws RegurgitatorException {
-        ContainsXpath toTest = new ContainsXpath(null);
+        ContainsXpathBehaviour toTest = new ContainsXpathBehaviour(null);
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);
         Parameter parameter = new Parameter(prototype, "<something:something xmlns:something=\"http://something.com\"><something:something>this</something:something></something:something>");
         assertTrue(toTest.evaluate(parameter, new Message(null), "/*[local-name()='something' and namespace-uri()='http://something.com']/*[local-name()='something' and namespace-uri()='http://something.com']", true));
@@ -48,7 +48,7 @@ public class ContainsXpathTest {
     public void testNamespaced_nsDefined() throws RegurgitatorException {
         Map<String, String> namespaceUris = new HashMap<>();
         namespaceUris.put("something", "http://something.com");
-        ContainsXpath toTest = new ContainsXpath(namespaceUris);
+        ContainsXpathBehaviour toTest = new ContainsXpathBehaviour(namespaceUris);
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);
         Parameter parameter = new Parameter(prototype, "<something:something xmlns:something=\"http://something.com\"><something:something>this</something:something></something:something>");
         assertTrue(toTest.evaluate(parameter, new Message(null), "/something:something/something:something", true));
