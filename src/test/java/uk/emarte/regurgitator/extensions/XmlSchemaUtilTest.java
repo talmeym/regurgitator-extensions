@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class XmlSchemaUtilTest {
     @Test
-    public void testThis() throws RegurgitatorException, IOException, SAXException {
+    public void testUtil() throws RegurgitatorException, IOException, SAXException {
         Schema schema = XmlSchemaUtil.getSchema("classpath:/xml-schema-import-test.xsd");
 
         Validator validator = schema.newValidator();

@@ -43,7 +43,7 @@ public class XmlParameterTest {
         Parameters parameters = message.getParameters();
 
         assertEquals(2, parameters.size());
-        assertEquals(Arrays.asList("miles", "dave"), parameters.getValue("names"));
+        assertEquals(Arrays.asList("martyn", "dave"), parameters.getValue("names"));
         assertEquals(Arrays.asList(37L, 42L), parameters.getValue("ages"));
     }
 }

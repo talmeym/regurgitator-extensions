@@ -21,7 +21,7 @@ import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 
 public class ContainsXpathTest {
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testBehaviour() throws RegurgitatorException {
         ContainsXpath toTest = new ContainsXpath(null);
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);
         Parameter parameter = new Parameter(prototype, "<something><something>this</something></something>");

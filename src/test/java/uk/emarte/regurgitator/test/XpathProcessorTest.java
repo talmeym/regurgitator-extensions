@@ -25,13 +25,13 @@ public class XpathProcessorTest {
     }
 
     @Test
-    public void testThis() throws RegurgitatorException {
-        XpathProcessor XpathProcessor = new XpathProcessor("/doc/person[name='miles']/age", null);
+    public void testOneAge() throws RegurgitatorException {
+        XpathProcessor XpathProcessor = new XpathProcessor("/doc/person[name='martyn']/age", null);
         assertEquals("37", XpathProcessor.process(xml, null));
     }
 
     @Test
-    public void testThat() throws RegurgitatorException {
+    public void testAllAges() throws RegurgitatorException {
         XpathProcessor XpathProcessor = new XpathProcessor("/doc/person/age", null);
         assertEquals(Arrays.asList("37", "42"), XpathProcessor.process(xml, null));
     }

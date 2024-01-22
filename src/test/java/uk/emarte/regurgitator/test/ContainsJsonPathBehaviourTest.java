@@ -17,7 +17,7 @@ import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 
 public class ContainsJsonPathBehaviourTest {
     @Test
-    public void testThis() {
+    public void testBehaviour() {
         ContainsJsonPathBehaviour toTest = new ContainsJsonPathBehaviour();
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);
         Parameter parameter = new Parameter(prototype, "{\"something\":{\"something\":\"this\"}}");

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Miles Talmey.
+ * Copyright (C) 2017 martyn Talmey.
  * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  */
 package uk.emarte.regurgitator.test;
@@ -10,8 +10,8 @@ import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.JsonPathProcessor;
 
 import java.io.IOException;
-import java.util.Arrays;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
@@ -26,21 +26,39 @@ public class JsonPathProcessorTest {
     }
 
     @Test
-    public void testThis() throws RegurgitatorException {
-        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[?(@.name=='miles')].age");
+    public void testPersonAge() throws RegurgitatorException {
+        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[?(@.name=='martyn')].age");
         assertEquals(singletonList(37), jsonpath.process(json, null));
     }
 
     @Test
-    public void testThat() throws RegurgitatorException {
+    public void testmartyn() throws RegurgitatorException {
+        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[?(@.name=='martyn')]");
+        assertEquals(singletonList("{\"name\":\"martyn\",\"age\":37}"), jsonpath.process(json, null));
+    }
+
+    @Test
+    public void testAllAges() throws RegurgitatorException {
         JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[*].age");
-        assertEquals(Arrays.asList(37, 42), jsonpath.process(json, null));
+        assertEquals(asList(37, 42), jsonpath.process(json, null));
+    }
+
+    @Test
+    public void testJsonObject() throws RegurgitatorException {
+        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[0]");
+        assertEquals("{\"name\":\"martyn\",\"age\":37}", jsonpath.process(json, null));
+    }
+
+    @Test
+    public void testJsonArray() throws RegurgitatorException {
+        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person");
+        assertEquals(asList("{\"name\":\"martyn\",\"age\":37}", "{\"name\":\"dave\",\"age\":42}"), jsonpath.process(json, null));
     }
 
     @Test
     public void testLinkedHashMap() throws IOException, RegurgitatorException {
         json = streamToString(getInputStreamForFile("classpath:/jsonpath-map-test.json"));
         JsonPathProcessor jsonpath = new JsonPathProcessor("$.object");
-        assertEquals("{\"something\":\"miles\"}", jsonpath.process(json, null));
+        assertEquals("{\"something\":\"thing\"}", jsonpath.process(json, null));
     }
 }

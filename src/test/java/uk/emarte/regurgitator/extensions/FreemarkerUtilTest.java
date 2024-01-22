@@ -13,9 +13,9 @@ import static org.junit.Assert.assertEquals;
 
 public class FreemarkerUtilTest {
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testUtil() throws RegurgitatorException {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("name", "Miles");
-        assertEquals("Hello Miles", FreemarkerUtil.buildFrom(map, "Hello ${name}"));
+        map.put("name", "Martyn");
+        assertEquals("Hello Martyn", FreemarkerUtil.buildFrom(map, "Hello ${name}"));
     }
 }
