@@ -28,7 +28,7 @@ regurgitator-extensions provides the following constructs:
 
 #### condition behaviours
 
-- ``contains-json-path`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-json-path), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-json-path), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-json-path)) checks whether a parameter's contents contains a sub-value that's extractable via json-path 
-- ``contains-xpath`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-xpath), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-xpath), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-xpath)) checks whether a parameter's contents contains a sub-value that's extractable via xpath
+- ``contains-json-path`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-json-path), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-json-path), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-json-path)) checks whether a parameter's contents contains a sub-value, extracted via json-path 
+- ``contains-xpath`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-xpath), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-xpath), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-xpath)) checks whether a parameter's contents contains a sub-value, extracted via xpath
 - ``meets-json-schema``
 - ``meets-xml-schema``
