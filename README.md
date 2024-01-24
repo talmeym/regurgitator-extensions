@@ -6,13 +6,17 @@ start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitat
 
 [``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.4/)
 
-## steps
+## extending regurgitator core
+
+regurgitator-extensions provides more ``steps`` and ``contructs`` to those already supplied by [``regurgitator-core``](https://talmeym.github.io/regurgitator-core#regurgitator-core), mainly around the handling / processing of ``xml`` and ``json`` 
+
+### steps
 
 regurgitator-extensions provides the following steps:
 - ``json-parameter`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#json-parameter), [json](https://talmeym.github.io/regurgitator-extensions-json#json-parameter), [yml](https://talmeym.github.io/regurgitator-extensions-yml#json-parameter)) create a parameter, extracting its value using json-path
 - ``xml-parameter`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#xml-parameter), [json](https://talmeym.github.io/regurgitator-extensions-json#xml-parameter), [yml](https://talmeym.github.io/regurgitator-extensions-yml#xml-parameter)) create a parameter, extracting its value using xpath
 
-## constructs
+### constructs
 
 regurgitator-extensions provides the following constructs:
 
