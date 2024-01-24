@@ -8,7 +8,7 @@ start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitat
 
 ## extending regurgitator core
 
-regurgitator-extensions provides additional ``steps`` and ``contructs`` to those already found in [``regurgitator-core``](https://talmeym.github.io/regurgitator-core#regurgitator-core), adding capabilities around handling ``json``, ``xml`` and templating (using ``freemarker``). 
+``regurgitator-extensions`` provides additional ``steps`` and ``contructs`` to those already found in [``regurgitator-core``](https://talmeym.github.io/regurgitator-core#regurgitator-core), adding capabilities for handling ``json``, ``xml`` and templating (with ``freemarker``). 
 
 ### steps
 
