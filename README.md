@@ -30,5 +30,5 @@ regurgitator-extensions provides the following constructs:
 
 - ``contains-json-path`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-json-path), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-json-path), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-json-path)) checks a parameter's value contains a sub-value, specified by json-path expression 
 - ``contains-xpath`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-xpath), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-xpath), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-xpath)) checks a parameter's value contains a sub-value, specified by xpath expression
-- ``meets-json-schema``
-- ``meets-xml-schema``
+- ``meets-json-schema`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#meets-json-schema), [json](https://talmeym.github.io/regurgitator-extensions-json#meets-json-schema), [yml](https://talmeym.github.io/regurgitator-extensions-yml#meets-json-schema)) checks a parameter's value meets the requirements to pass validation against a json schema
+- ``meets-xml-schema`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#meets-xml-schema), [json](https://talmeym.github.io/regurgitator-extensions-json#meets-xml-schema), [yml](https://talmeym.github.io/regurgitator-extensions-yml#meets-xml-schema)) checks a parameter's value meets the requirements to pass validation against an xml schema
