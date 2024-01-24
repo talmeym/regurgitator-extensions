@@ -15,6 +15,7 @@ regurgitator-extensions provides the following steps:
 ## constructs
 
 regurgitator-extensions provides the following constructs:
+
 #### value builders
 - ``freemarker-builder`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#freemarker-builder), [json](https://talmeym.github.io/regurgitator-extensions-json#freemarker-builder), [yml](https://talmeym.github.io/regurgitator-extensions-yml#freemarker-builder)) build a parameter value using a freemarker template
 
@@ -25,3 +26,9 @@ regurgitator-extensions provides the following constructs:
 - ``json-schema-validator`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#json-schema-validator), [json](https://talmeym.github.io/regurgitator-extensions-json#json-schema-validator), [yml](https://talmeym.github.io/regurgitator-extensions-yml#json-schema-validator)) process a parameter value, validating it against a json schema
 - ``xml-schema-validator`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#xml-schema-validator), [json](https://talmeym.github.io/regurgitator-extensions-json#xml-schema-validator), [yml](https://talmeym.github.io/regurgitator-extensions-yml#xml-schema-validator)) process a parameter value, validating it against an xml schema
 
+#### condition behaviours
+
+- ``contains-json-path`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-json-path), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-json-path), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-json-path)) checks whether a parameter's contents contains a sub-value that can be extracted using a json-path expression 
+- ``contains-xpath`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-xpath), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-xpath), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-xpath)) checks whether a parameter's contents contains a sub-value that can be extracted using an xpath expression
+- ``meets-json-schema``
+- ``meets-xml-schema``
