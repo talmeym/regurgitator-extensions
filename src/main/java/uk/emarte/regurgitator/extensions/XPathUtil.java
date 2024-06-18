@@ -14,10 +14,12 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 class XPathUtil {
     static Object strip(Object extract) {
+        // convert empty string into null
         if(extract != null && extract.equals("")) {
             extract = null;
         }
 
+        // convert text node list into string list
         if (extract instanceof Collection) {
             Collection<Node> nodeCollection = (Collection<Node>) extract;
 
@@ -33,9 +35,11 @@ class XPathUtil {
                 return objs;
             }
 
+            // convert empty collection into null
             return null;
         }
 
+        // convert NodeList into string list
         if(extract instanceof NodeList) {
             NodeList nodeList = (NodeList) extract;
             List<Object> list = new ArrayList<>(nodeList.getLength());
@@ -44,9 +48,10 @@ class XPathUtil {
                 list.add(nodeList.item(i).getTextContent());
             }
 
-            return list.size() == 1 ? list.get(0) : list;
+            return list;
         }
 
+        // convert Node into string
         if (extract instanceof Node) {
             if (((Node) extract).getTextContent().length() > 0) {
                 return ((Node)extract).getTextContent();

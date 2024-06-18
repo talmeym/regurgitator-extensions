@@ -7,15 +7,22 @@ package uk.emarte.regurgitator.extensions;
 import org.junit.Test;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 
-import java.util.HashMap;
-
+import static java.util.Collections.singletonMap;
 import static org.junit.Assert.assertEquals;
 
 public class FreemarkerUtilTest {
     @Test
     public void testUtil() throws RegurgitatorException {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("name", "Martyn");
-        assertEquals("Hello Martyn", FreemarkerUtil.buildFrom(map, "Hello ${name}"));
+        assertEquals("Hello Martyn", FreemarkerUtil.buildFrom(singletonMap("name", "Martyn"), "Hello ${name}"));
+    }
+
+    @Test(expected = RegurgitatorException.class)
+    public void testUtil_ioException() throws RegurgitatorException {
+        FreemarkerUtil.buildFrom(singletonMap("name", "Martyn"), "Hello ${name");
+    }
+
+    @Test(expected = RegurgitatorException.class)
+    public void testUtil_templateException() throws RegurgitatorException {
+        FreemarkerUtil.buildFrom(singletonMap("name", "Martyn"), "Hello ${age}");
     }
 }

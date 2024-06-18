@@ -30,8 +30,8 @@ public class JsonParameterTest {
 
     @Test
     public void testJsonDocument() throws RegurgitatorException {
-        JsonParameter toTest1 = new JsonParameter("toTest1", new ParameterPrototype("names", LIST_OF_STRING, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].name"), new ArrayList<>());
-        JsonParameter toTest2 = new JsonParameter("toTest2", new ParameterPrototype("ages", LIST_OF_NUMBER, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].age"), new ArrayList<>());
+        JsonParameter toTest1 = new JsonParameter("toTest1", new ParameterPrototype("names", LIST_OF_STRING, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].name"), new ArrayList<>(), false);
+        JsonParameter toTest2 = new JsonParameter("toTest2", new ParameterPrototype("ages", LIST_OF_NUMBER, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[*].age"), new ArrayList<>(), false);
 
         Message message = new Message(null);
         message.getContext("test").setValue("input", STRING, json);
@@ -44,5 +44,18 @@ public class JsonParameterTest {
         assertEquals(2, parameters.size());
         assertEquals(Arrays.asList("martyn", "dave"), parameters.getValue("names"));
         assertEquals(Arrays.asList(37L, 42L), parameters.getValue("ages"));
+    }
+
+    @Test
+    public void testOptional() throws RegurgitatorException {
+        JsonParameter toTest = new JsonParameter("toTest", new ParameterPrototype("first_shoe_size", NUMBER, REPLACE), "parameters", new ValueSource(new ContextLocation("test:input"), null), new JsonPathProcessor("$.person[0].shoe_size"), new ArrayList<>(), true);
+
+        Message message = new Message(null);
+        message.getContext("test").setValue("input", STRING, json);
+
+        toTest.execute(message);
+
+        Parameters parameters = message.getParameters();
+        assertEquals(0, parameters.size());
     }
 }

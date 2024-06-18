@@ -6,6 +6,7 @@ package uk.emarte.regurgitator.extensions;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import uk.emarte.regurgitator.core.Log;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 
@@ -50,8 +51,12 @@ class FreemarkerUtil {
             Template template = new Template("template", templateText, CONFIGURATION);
             template.process(valueMap, writer);
             return writer.toString();
-        } catch (Exception e) {
-            throw new RegurgitatorException("Error building freemarker message", e);
+        } catch(TemplateException te) {
+            throw new RegurgitatorException("Template error building freemarker message", te);
+        } catch (IOException ioe) {
+            throw new RegurgitatorException("IO error building freemarker message", ioe);
+        } catch(Exception e) {
+            throw new RegurgitatorException("Other error building freemarker message", e);
         }
     }
 }

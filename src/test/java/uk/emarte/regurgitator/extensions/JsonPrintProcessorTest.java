@@ -5,6 +5,7 @@
 package uk.emarte.regurgitator.extensions;
 
 import org.junit.Test;
+import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Map;
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonMap;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class JsonPrintProcessorTest {
     @Test
@@ -36,6 +38,12 @@ public class JsonPrintProcessorTest {
         Map<String, List<Person>> map = singletonMap("people", asList(person("Dave", 21), person("Wendy", 18), person("Harold", 55)));
         String json = (String) processor.process(map, null);
         assertEquals("{\"people\":[{\"name\":\"Dave\",\"age\":21},{\"name\":\"Wendy\",\"age\":18},{\"name\":\"Harold\",\"age\":55}]}", json);
+    }
+
+    @Test
+    public void testPassThrough() throws RegurgitatorException {
+        JsonPrintProcessor processor = new JsonPrintProcessor();
+        assertNull(processor.process(null, new Message(null)));
     }
 
     private Person person(String name, int age) {
