@@ -13,14 +13,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 class JsonPathUtil {
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    @SuppressWarnings("unchecked")
     static Object strip(Object extract) {
+        // convert list entries that are LinkedHashMaps into json strings
         if (extract instanceof Collection) {
             List<Object> objs = new ArrayList<>();
 
-            for (Object obj : (Collection<Object>) extract) {
+            for (Object obj : (Collection<?>) extract) {
                 if(obj instanceof LinkedHashMap) {
                     objs.add(toJsonString(obj));
                 } else {
@@ -31,6 +31,7 @@ class JsonPathUtil {
             return objs;
         }
 
+        // convert LinkedHashMap into json string
         if(extract instanceof LinkedHashMap) {
             return toJsonString(extract);
         }
@@ -40,7 +41,7 @@ class JsonPathUtil {
 
     private static Object toJsonString(Object obj) {
         try {
-            return objectMapper.writeValueAsString(obj);
+            return OBJECT_MAPPER.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
             return obj;
         }

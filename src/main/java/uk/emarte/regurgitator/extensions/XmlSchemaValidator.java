@@ -34,6 +34,15 @@ public class XmlSchemaValidator implements ValueProcessor {
 
     @Override
     public Object process(Object value, Message message) throws RegurgitatorException {
+        if(value != null) {
+            return validateAgainstSchema(value);
+        }
+
+        log.warn("No value to process");
+        return null;
+    }
+
+    Object validateAgainstSchema(Object value) throws RegurgitatorException {
         try {
             Validator validator = schema.newValidator();
             Source source = new StreamSource(new ByteArrayInputStream(stringify(value).getBytes()));
@@ -41,7 +50,6 @@ public class XmlSchemaValidator implements ValueProcessor {
             log.debug("Value successfully validated against xml schema '{}'", schemaPath);
             return value;
         } catch (SAXException | IOException e) {
-            log.warn("Value did not validate against xml schema '{}'", schemaPath);
             throw new RegurgitatorException("Value did not validate against xml schema + '" + schemaPath + "'", e);
         }
     }

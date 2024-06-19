@@ -6,6 +6,7 @@ package uk.emarte.regurgitator.test;
 
 import org.junit.Before;
 import org.junit.Test;
+import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.JsonPathProcessor;
 
@@ -14,6 +15,7 @@ import java.io.IOException;
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 import static uk.emarte.regurgitator.core.FileUtil.streamToString;
 
@@ -32,7 +34,7 @@ public class JsonPathProcessorTest {
     }
 
     @Test
-    public void testmartyn() throws RegurgitatorException {
+    public void testMartyn() throws RegurgitatorException {
         JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[?(@.name=='martyn')]");
         assertEquals(singletonList("{\"name\":\"martyn\",\"age\":37}"), jsonpath.process(json, null));
     }
@@ -60,5 +62,17 @@ public class JsonPathProcessorTest {
         json = streamToString(getInputStreamForFile("classpath:/jsonpath-map-test.json"));
         JsonPathProcessor jsonpath = new JsonPathProcessor("$.object");
         assertEquals("{\"something\":\"thing\"}", jsonpath.process(json, null));
+    }
+
+    @Test
+    public void testNullIfNotFound() throws RegurgitatorException {
+        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[0].shoe_size");
+        assertNull(jsonpath.process(json, null));
+    }
+
+    @Test
+    public void testPassThrough() throws RegurgitatorException {
+        JsonPathProcessor jsonpath = new JsonPathProcessor("$.person[0]");
+        assertNull(jsonpath.process(null, new Message(null)));
     }
 }

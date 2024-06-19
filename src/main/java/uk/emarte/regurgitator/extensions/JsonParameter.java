@@ -15,8 +15,8 @@ public class JsonParameter extends ParameterExtractor {
     private final ValueSource valueSource;
     private final JsonPathProcessor jsonPathProcessor;
 
-    public JsonParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, JsonPathProcessor jsonPathProcessor, List<ValueProcessor> processors) {
-        super(id, prototype, context, processors);
+    public JsonParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, JsonPathProcessor jsonPathProcessor, List<ValueProcessor> processors, boolean optional) {
+        super(id, prototype, context, processors, optional);
         this.jsonPathProcessor = jsonPathProcessor;
         this.valueSource = valueSource;
     }

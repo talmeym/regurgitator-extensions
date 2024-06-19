@@ -15,8 +15,8 @@ public class XmlParameter extends ParameterExtractor {
     private final ValueSource valueSource;
     private final XpathProcessor xpathProcessor;
 
-    public XmlParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, XpathProcessor xpathProcessor, List<ValueProcessor> processors) {
-        super(id, prototype, context, processors);
+    public XmlParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, XpathProcessor xpathProcessor, List<ValueProcessor> processors, boolean optional) {
+        super(id, prototype, context, processors, optional);
         this.valueSource = valueSource;
         this.xpathProcessor = xpathProcessor;
     }

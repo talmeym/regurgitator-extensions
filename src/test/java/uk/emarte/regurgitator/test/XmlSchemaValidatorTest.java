@@ -11,6 +11,8 @@ import uk.emarte.regurgitator.core.RegurgitatorException;
 import uk.emarte.regurgitator.extensions.XmlSchemaValidator;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 public class XmlSchemaValidatorTest {
     private XmlSchemaValidator toTest;
 
@@ -33,5 +35,10 @@ public class XmlSchemaValidatorTest {
     @Test(expected = RegurgitatorException.class)
     public void testMissingSchema() throws RegurgitatorException {
         toTest = new XmlSchemaValidator("classpath:/doesNotExist.xsd");
+    }
+
+    @Test
+    public void testPassThrough() throws RegurgitatorException {
+        assertNull(toTest.process(null, new Message(null)));
     }
 }

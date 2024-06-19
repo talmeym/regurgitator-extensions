@@ -21,10 +21,10 @@ import static uk.emarte.regurgitator.core.FileUtil.getInputStreamForFile;
 
 class XmlSchemaUtil {
     private static final Log log = Log.getLog(XmlSchemaUtil.class);
-    private static final SchemaFactory factory = newInstance(W3C_XML_SCHEMA_NS_URI);
+    private static final SchemaFactory FACTORY = newInstance(W3C_XML_SCHEMA_NS_URI);
 
     static {
-        factory.setResourceResolver((type, namespaceURI, publicId, systemId, baseURI) -> {
+        FACTORY.setResourceResolver((type, namespaceURI, publicId, systemId, baseURI) -> {
             ByteStreamLSInput input = new ByteStreamLSInput();
 
             try {
@@ -41,7 +41,7 @@ class XmlSchemaUtil {
 
     static Schema getSchema(String schemaPath) throws RegurgitatorException {
         try {
-            return factory.newSchema(new StreamSource(getInputStreamForFile(schemaPath)));
+            return FACTORY.newSchema(new StreamSource(getInputStreamForFile(schemaPath)));
         } catch (Exception e) {
             throw new RegurgitatorException("Error loading schema '" + schemaPath + "'", e);
         }
