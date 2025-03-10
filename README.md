@@ -4,8 +4,6 @@ regurgitator is a lightweight, modular, extendable java framework that you confi
 
 start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitator-all#regurgitator)
 
-[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.4/)
-
 ## extending regurgitator core
 
 ``regurgitator-extensions`` provides additional ``steps`` and ``contructs`` to those already found in [``regurgitator-core``](https://talmeym.github.io/regurgitator-core#regurgitator-core), adding capabilities for handling ``json``, ``xml`` and templating (with ``freemarker``). 
@@ -36,3 +34,6 @@ regurgitator-extensions provides the following constructs:
 - ``contains-xpath`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#contains-xpath), [json](https://talmeym.github.io/regurgitator-extensions-json#contains-xpath), [yml](https://talmeym.github.io/regurgitator-extensions-yml#contains-xpath)) checks a parameter's value contains a sub-value, specified by ``xpath`` expression
 - ``meets-json-schema`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#meets-json-schema), [json](https://talmeym.github.io/regurgitator-extensions-json#meets-json-schema), [yml](https://talmeym.github.io/regurgitator-extensions-yml#meets-json-schema)) checks a parameter's value meets the requirements to pass validation against a ``json`` schema
 - ``meets-xml-schema`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#meets-xml-schema), [json](https://talmeym.github.io/regurgitator-extensions-json#meets-xml-schema), [yml](https://talmeym.github.io/regurgitator-extensions-yml#meets-xml-schema)) checks a parameter's value meets the requirements to pass validation against an ``xml`` schema
+
+[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.5/){:target="_blank"}
+
