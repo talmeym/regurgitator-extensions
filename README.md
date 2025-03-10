@@ -35,5 +35,7 @@ regurgitator-extensions provides the following constructs:
 - ``meets-json-schema`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#meets-json-schema), [json](https://talmeym.github.io/regurgitator-extensions-json#meets-json-schema), [yml](https://talmeym.github.io/regurgitator-extensions-yml#meets-json-schema)) checks a parameter's value meets the requirements to pass validation against a ``json`` schema
 - ``meets-xml-schema`` ([xml](https://talmeym.github.io/regurgitator-extensions-xml#meets-xml-schema), [json](https://talmeym.github.io/regurgitator-extensions-json#meets-xml-schema), [yml](https://talmeym.github.io/regurgitator-extensions-yml#meets-xml-schema)) checks a parameter's value meets the requirements to pass validation against an ``xml`` schema
 
-[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.5/){:target="_blank"}
+---
+
+api docs: [``0.1.5``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.5/){:target="_blank"} [``0.1.4``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.4/){:target="_blank"} [``0.1.3``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.3/){:target="_blank"} [``0.1.2``](https://regurgitator.emarte.uk/apidocs/regurgitator-extensions/0.1.2/){:target="_blank"}
 
